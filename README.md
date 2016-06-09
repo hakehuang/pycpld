@@ -1,6 +1,9 @@
 # pycpld
 CPLD program integrated by python script.
 
+#purpose
+this project is to use the python script to integrate different CPLD IP into target board system. Currently the Altera MAX-II EP570P is supported. and the Arduio compatible CPLD board is added in reference design. 
+
 #requirement
 1. install python 2.7
 2. install alter Quartus lite
