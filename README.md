@@ -5,6 +5,9 @@ CPLD program integrated by python script.
 1. install python 2.7
 2. install alter Quartus lite
 
+#install
+1. pip install -r requirements.txt
+
 
 
 #build steps
