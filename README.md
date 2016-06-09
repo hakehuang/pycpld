@@ -1,5 +1,11 @@
 # pycpld
-CPLD program integrated by python script
+CPLD program integrated by python script.
+
+#requirement
+1. install python 2.7
+2. install alter Quartus lite
+
+
 
 #build steps
 1. create a CPLD configure file in yaml format, please refer to twrkv58f220m_SDK_2_0_enc.yml or twrkv46f150m_SDK_2_0_enc.yml
