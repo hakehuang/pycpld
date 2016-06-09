@@ -1,0 +1,400 @@
+1:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO1
+2:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO2
+3:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO3
+4:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO4
+5:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO5
+#6:
+#    TYPE: A
+#    FUNC: NONE
+#    PINS: uart_rx
+7:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO7
+8:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO8
+# 9:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 10:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 11:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+12:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: 50MHZ_OSC
+# 13:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+#14:
+#    TYPE: A
+#    FUNC: NONE
+#    PINS: CPLD_IO14
+15:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO15
+16:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO16
+17:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO17
+18:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO18
+19:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO19
+20:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO20
+21:
+    TYPE: A
+    FUNC: NONE
+    PINS: CPLD_IO21
+# 22:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 23:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 24:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 25:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+26:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO26
+27:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO27
+28:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO28
+29:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO29
+30:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO30
+# 31:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 32:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+33:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO33
+34:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO34
+35:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO35
+36:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO36
+# 37:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+38:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO37
+# 39:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+#40:
+#    TYPE: T
+#    FUNC: LED1
+#    PINS: CPLD_IO40
+#41:
+#    TYPE: T
+#    FUNC: LED2
+#    PINS: CPLD_IO41
+#42:
+#    TYPE: T
+#    FUNC: LED3
+#    PINS: CPLD_IO42
+#43:
+#    TYPE: T
+#    FUNC: LED4
+#    PINS: CPLD_IO43
+# 44:
+#     TYPE: T
+#     FUNC: RST
+#     PINS: CPLD_IO44
+# 45:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 46:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+47:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO47
+48:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO48
+49:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO49
+50:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO50
+51:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO51
+52:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO52
+53:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO53
+54:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO54
+55:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO55
+56:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO56
+57:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO57
+58:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO58
+# 59:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 60:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+61:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO61
+62:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO62
+# 63:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+64:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO64
+# 65:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+66:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO66
+67:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO67
+68:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO68
+69:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO69
+70:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO70
+71:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO71
+72:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO72
+73:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO73
+74:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO74
+75:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO75
+76:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO76
+77:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO77
+78:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO78
+# 79:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 80:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+81:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO81
+82:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO82
+83:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO83
+84:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO84
+85:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO85
+86:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO86
+87:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO87
+# 88:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+89:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO89
+# 90:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+91:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO91
+92:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO92
+# 93:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 94:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+95:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO95
+96:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO96
+97:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO97
+98:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO98
+99:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO99
+100:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO100

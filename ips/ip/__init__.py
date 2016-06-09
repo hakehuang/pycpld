@@ -1,0 +1,1 @@
+all = ["enc", "uart", "uart7bit"]

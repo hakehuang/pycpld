@@ -1,0 +1,13 @@
+#this is a example of how ENC ip is used in our yaml
+ENC:
+    IP: __ENC
+    CMD: ENC
+    pha_out:
+        PIN: A34
+        DIRECTION: out
+    phb_out:
+        PIN: A33
+        DIRECTION: out
+    index_out:
+        PIN: CPLD_IO50
+        DIRECTION: out

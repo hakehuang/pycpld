@@ -1,0 +1,28 @@
+
+State Machine - |top|Current
+Name Current.IDLE Current.SAVE Current.WAIT Current.S1 
+Current.IDLE 0 0 0 0 
+Current.S1 1 0 0 1 
+Current.WAIT 1 0 1 0 
+Current.SAVE 1 1 0 0 
+
+State Machine - |top|uart_top7to7:uart_top7to7|my_uart_rx7to7:rx_inst|state
+Name state.TRAN 
+state.IDLE 0 
+state.TRAN 1 
+
+State Machine - |top|enc:enc|pha_count
+Name pha_count.00000000 pha_count.00001011 pha_count.00001010 pha_count.00001001 pha_count.00001000 pha_count.00000111 pha_count.00000110 pha_count.00000101 pha_count.00000100 pha_count.00000011 pha_count.00000010 pha_count.00000001 pha_count.00001100 
+pha_count.00001100 0 0 0 0 0 0 0 0 0 0 0 0 0 
+pha_count.00000001 0 0 0 0 0 0 0 0 0 0 0 1 1 
+pha_count.00000010 0 0 0 0 0 0 0 0 0 0 1 0 1 
+pha_count.00000011 0 0 0 0 0 0 0 0 0 1 0 0 1 
+pha_count.00000100 0 0 0 0 0 0 0 0 1 0 0 0 1 
+pha_count.00000101 0 0 0 0 0 0 0 1 0 0 0 0 1 
+pha_count.00000110 0 0 0 0 0 0 1 0 0 0 0 0 1 
+pha_count.00000111 0 0 0 0 0 1 0 0 0 0 0 0 1 
+pha_count.00001000 0 0 0 0 1 0 0 0 0 0 0 0 1 
+pha_count.00001001 0 0 0 1 0 0 0 0 0 0 0 0 1 
+pha_count.00001010 0 0 1 0 0 0 0 0 0 0 0 0 1 
+pha_count.00001011 0 1 0 0 0 0 0 0 0 0 0 0 1 
+pha_count.00000000 1 0 0 0 0 0 0 0 0 0 0 0 1 

@@ -1,0 +1,29 @@
+#this is a example of how ENC ip is used in our yaml
+USH:
+    IP: __UART7BIT
+    CMD: USH
+    ALT: a
+    rs232_tx7to7:
+        PIN: A34
+        DIRECTION: out
+    rs232_rx7to7:
+        PIN: A33
+        DIRECTION: in
+    compara_error:
+        PIN: CPLD_IO50
+        DIRECTION: out
+
+#two different ALT can not conexist in one project
+USL:
+    IP: __UART7BIT
+    CMD: USL
+    ALT: a
+    rs232_tx7to7:
+        PIN: A34
+        DIRECTION: out
+    rs232_rx7to7:
+        PIN: A33
+        DIRECTION: in
+    compara_error:
+        PIN: CPLD_IO50
+        DIRECTION: out

@@ -1,0 +1,403 @@
+1:
+    TYPE: NONE
+    FUNC: L4
+    PINS: CPLD_IO1
+    #used by L4 with J7 2-3.
+2:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO2
+3:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO3
+4:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO4
+5:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO5
+6:
+    TYPE: A
+    FUNC: TXD_K70
+    PINS: NONE
+7:
+    TYPE: A
+    FUNC: RXD_K70
+    PINS: NONE
+8:
+    TYPE: A
+    FUNC: PWM1_K70
+    PINS: A39_K70
+# 9:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 10:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 11:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+12:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: 50MHZ_OSC
+# 13:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+14:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO14
+15:
+    TYPE: A
+    FUNC: PWM0_K70
+    PINS: A40_K70
+16:
+    TYPE: A
+    FUNC: IRQ_E_K70
+    PINS: B58_K70
+17:
+    TYPE: A
+    FUNC: A35_K70
+    PINS: A35_K70
+18:
+    TYPE: A
+    FUNC: SPI1_MISO_K70
+#k70 SOUT
+    PINS: B11_K70
+19:
+    TYPE: A
+    FUNC: SPI1_MOSI_K70
+#k70 SIN
+    PINS: B10_K70
+20:
+    TYPE: A
+    FUNC: SPI1_CS0_K70
+    PINS: B9_K70
+21:
+    TYPE: A
+    FUNC: SPI1_CLK_K70
+    PINS: B7_K70
+# 22:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 23:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 24:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 25:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+26:
+    TYPE: T
+    FUNC: NONE
+    PINS: B7
+27:
+    TYPE: T
+    FUNC: NONE
+    PINS: B8
+28:
+    TYPE: T
+    FUNC: NONE
+    PINS: B9
+29:
+    TYPE: T
+    FUNC: NONE
+    PINS: B10
+30:
+    TYPE: T
+    FUNC: NONE
+    PINS: B11
+# 31:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 32:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+33:
+    TYPE: T
+    FUNC: NONE
+    PINS:  A9
+34:
+    TYPE: T
+    FUNC: NONE
+    PINS: A10
+35:
+    TYPE: T
+    FUNC: NONE
+    PINS: A11
+36:
+    TYPE: T
+    FUNC: NONE
+    PINS: B21
+# 37:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+38:
+    TYPE: T
+    FUNC: NONE
+    PINS: B22
+# 39:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+40:
+    TYPE: T
+    FUNC: NONE
+    PINS: B23
+41:
+    TYPE: T
+    FUNC: NONE
+    PINS: B24
+42:
+    TYPE: T
+    FUNC: NONE
+    PINS: B25
+43:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO43
+# 44:
+#     TYPE: T
+#     FUNC: NONE
+#     PINS: B28
+# 45:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 46:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+47:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO47
+48:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO48
+49:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO49
+50:
+    TYPE: NONE
+    FUNC: NONE
+    PINS: CPLD_IO50
+51:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO51
+52:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO52
+53:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO53
+54:
+    TYPE: T
+    FUNC: NONE
+    PINS: CPLD_IO54
+55:
+    TYPE: T
+    FUNC: NONE
+    PINS: B35
+56:
+    TYPE: T
+    FUNC: NONE
+    PINS: B37
+57:
+    TYPE: T
+    FUNC: NONE
+    PINS: B38
+58:
+    TYPE: T
+    FUNC: NONE
+    PINS: B39
+# 59:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 60:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+61:
+    TYPE: T
+    FUNC: NONE
+    PINS: A33
+62:
+    TYPE: T
+    FUNC: NONE
+    PINS: A34
+# 63:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+64:
+    TYPE: T
+    FUNC: NONE
+    PINS: A35
+# 65:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+66:
+    TYPE: T
+    FUNC: NONE
+    PINS: A37
+67:
+    TYPE: T
+    FUNC: NONE
+    PINS: A38
+68:
+    TYPE: T
+    FUNC: NONE
+    PINS: A39
+69:
+    TYPE: T
+    FUNC: NONE
+    PINS: A40
+70:
+    TYPE: T
+    FUNC: NONE
+    PINS: A41
+71:
+    TYPE: T
+    FUNC: NONE
+    PINS: A42
+72:
+    TYPE: T
+    FUNC: NONE
+    PINS: A43
+73:
+    TYPE: T
+    FUNC: NONE
+    PINS: A44
+74:
+    TYPE: T
+    FUNC: NONE
+    PINS: B40
+75:
+    TYPE: T
+    FUNC: NONE
+    PINS: B43
+76:
+    TYPE: T
+    FUNC: NONE
+    PINS: B44
+77:
+    TYPE: T
+    FUNC: NONE
+    PINS: B45
+78:
+    TYPE: T
+    FUNC: NONE
+    PINS: B46
+# 79:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 80:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+81:
+    TYPE: T
+    FUNC: NONE
+    PINS: B47
+82:
+    TYPE: T
+    FUNC: NONE
+    PINS: B48
+83:
+    TYPE: T
+    FUNC: NONE
+    PINS: A50
+84:
+    TYPE: T
+    FUNC: NONE
+    PINS: A51
+85:
+    TYPE: T
+    FUNC: NONE
+    PINS: A52
+86:
+    TYPE: T
+    FUNC: NONE
+    PINS: A53
+87:
+    TYPE: T
+    FUNC: NONE
+    PINS: B52
+# 88:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+89:
+    TYPE: T
+    FUNC: NONE
+    PINS: B55
+# 90:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+91:
+    TYPE: T
+    FUNC: NONE
+    PINS: B57
+92:
+    TYPE: T
+    FUNC: NONE
+    PINS: B59
+# 93:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+# 94:
+#     TYPE: NONE
+#     FUNC: NONE
+#     PINS: X
+95:
+    TYPE: T
+    FUNC: NONE
+    PINS: A58
+96:
+    TYPE: T
+    FUNC: NONE
+    PINS: A59
+97:
+    TYPE: T
+    FUNC: NONE
+    PINS: A60
+98:
+    TYPE: T
+    FUNC: NONE
+    PINS: B61
+99:
+    TYPE: T
+    FUNC: NONE
+    PINS: B63
+100:
+    TYPE: T
+    FUNC: NONE
+    PINS: B64

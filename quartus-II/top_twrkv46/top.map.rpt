@@ -1,0 +1,470 @@
+Analysis & Synthesis report for top
+Wed Jun 08 12:52:32 2016
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top|Current
+  9. State Machine - |top|enc:enc|pha_count
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |top
+ 14. Parameter Settings for User Entity Instance: speed_select:speed_select
+ 15. Port Connectivity Checks: "enc:enc"
+ 16. Port Connectivity Checks: "my_uart_tx:my_uart_tx"
+ 17. Port Connectivity Checks: "my_uart_rx:my_uart_rx"
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jun 08 12:52:32 2016       ;
+; Quartus Prime Version       ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
+; Revision Name               ; top                                         ;
+; Top-level Entity Name       ; top                                         ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 235                                         ;
+; Total pins                  ; 8                                           ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EPM570T100C5       ;                    ;
+; Top-level entity name                                                      ; top                ; top                ;
+; Family name                                                                ; MAX II             ; Cyclone V          ;
+; Verilog Show LMF Mapping Messages                                          ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                   ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+; top.v                            ; yes             ; User Verilog HDL File  ; D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v          ;         ;
+; enc.v                            ; yes             ; User Verilog HDL File  ; D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/enc.v          ;         ;
+; speed_select.v                   ; yes             ; User Verilog HDL File  ; D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v ;         ;
+; uart_rx.v                        ; yes             ; User Verilog HDL File  ; D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_rx.v      ;         ;
+; uart_tx.v                        ; yes             ; User Verilog HDL File  ; D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_tx.v      ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 235   ;
+;     -- Combinational with no register       ; 65    ;
+;     -- Register only                        ; 54    ;
+;     -- Combinational with a register        ; 116   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 88    ;
+;     -- 3 input functions                    ; 12    ;
+;     -- 2 input functions                    ; 70    ;
+;     -- 1 input functions                    ; 9     ;
+;     -- 0 input functions                    ; 2     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 180   ;
+;     -- arithmetic mode                      ; 55    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 58    ;
+;     -- asynchronous clear/load mode         ; 169   ;
+;                                             ;       ;
+; Total registers                             ; 170   ;
+; Total logic cells in carry chains           ; 58    ;
+; I/O pins                                    ; 8     ;
+; Maximum fan-out node                        ; rst_n ;
+; Maximum fan-out                             ; 170   ;
+; Total fan-out                               ; 1071  ;
+; Average fan-out                             ; 4.41  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++--------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
+; Compilation Hierarchy Node     ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name            ; Library Name ;
++--------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
+; |top                           ; 235 (70)    ; 170          ; 0          ; 8    ; 0            ; 65 (14)      ; 54 (27)           ; 116 (29)         ; 58 (0)          ; 0 (0)      ; |top                           ; work         ;
+;    |enc:enc|                   ; 61 (61)     ; 49           ; 0          ; 0    ; 0            ; 12 (12)      ; 11 (11)           ; 38 (38)          ; 32 (32)         ; 0 (0)      ; |top|enc:enc                   ; work         ;
+;    |my_uart_rx:my_uart_rx|     ; 36 (36)     ; 22           ; 0          ; 0    ; 0            ; 14 (14)      ; 8 (8)             ; 14 (14)          ; 0 (0)           ; 0 (0)      ; |top|my_uart_rx:my_uart_rx     ; work         ;
+;    |my_uart_tx:my_uart_tx|     ; 24 (24)     ; 15           ; 0          ; 0    ; 0            ; 9 (9)        ; 8 (8)             ; 7 (7)            ; 0 (0)           ; 0 (0)      ; |top|my_uart_tx:my_uart_tx     ; work         ;
+;    |speed_select:speed_select| ; 44 (44)     ; 28           ; 0          ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 28 (28)          ; 26 (26)         ; 0 (0)      ; |top|speed_select:speed_select ; work         ;
++--------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------+
+; State Machine - |top|Current                                           ;
++--------------+--------------+--------------+--------------+------------+
+; Name         ; Current.IDLE ; Current.SAVE ; Current.WAIT ; Current.S1 ;
++--------------+--------------+--------------+--------------+------------+
+; Current.IDLE ; 0            ; 0            ; 0            ; 0          ;
+; Current.S1   ; 1            ; 0            ; 0            ; 1          ;
+; Current.WAIT ; 1            ; 0            ; 1            ; 0          ;
+; Current.SAVE ; 1            ; 1            ; 0            ; 0          ;
++--------------+--------------+--------------+--------------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top|enc:enc|pha_count                                                                                                                                                                                                                                                              ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name               ; pha_count.00000000 ; pha_count.00001011 ; pha_count.00001010 ; pha_count.00001001 ; pha_count.00001000 ; pha_count.00000111 ; pha_count.00000110 ; pha_count.00000101 ; pha_count.00000100 ; pha_count.00000011 ; pha_count.00000010 ; pha_count.00000001 ; pha_count.00001100 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; pha_count.00001100 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; pha_count.00000001 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
+; pha_count.00000010 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ;
+; pha_count.00000011 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00000100 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00000101 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00000110 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00000111 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00001000 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00001001 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00001010 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00001011 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; pha_count.00000000 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                   ;
++---------------------------------------------+----------------------------------------+
+; Register name                               ; Reason for Removal                     ;
++---------------------------------------------+----------------------------------------+
+; speed_select:speed_select|bps_para[9..12]   ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[7,8]     ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[6]       ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[4,5]     ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[2,3]     ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[1]       ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[0]       ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[8..12] ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[6,7]   ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[5]     ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[3,4]   ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[1,2]   ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[0]     ; Stuck at VCC due to stuck port data_in ;
+; enc:enc|pha_count~4                         ; Lost fanout                            ;
+; enc:enc|pha_count~5                         ; Lost fanout                            ;
+; enc:enc|pha_count~6                         ; Lost fanout                            ;
+; enc:enc|pha_count~7                         ; Lost fanout                            ;
+; enc:enc|pha_count~8                         ; Lost fanout                            ;
+; enc:enc|pha_count~9                         ; Lost fanout                            ;
+; enc:enc|pha_count~10                        ; Lost fanout                            ;
+; enc:enc|pha_count~11                        ; Lost fanout                            ;
+; Total Number of Removed Registers = 34      ;                                        ;
++---------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 170   ;
+; Number of registers using Synchronous Clear  ; 58    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 169   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 77    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; my_uart_tx:my_uart_tx|uart_tx_reg      ; 1       ;
+; enc:enc|pha_reg                        ; 3       ;
+; my_uart_rx:my_uart_rx|rx_complete_reg  ; 3       ;
+; my_uart_tx:my_uart_tx|tx_complete_reg  ; 2       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top ;
++----------------+----------+-----------------------------------------+
+; Parameter Name ; Value    ; Type                                    ;
++----------------+----------+-----------------------------------------+
+; IDLE           ; 000      ; Unsigned Binary                         ;
+; S1             ; 001      ; Unsigned Binary                         ;
+; WAIT           ; 010      ; Unsigned Binary                         ;
+; SAVE           ; 100      ; Unsigned Binary                         ;
+; A              ; 01000001 ; Unsigned Binary                         ;
+; B              ; 01000010 ; Unsigned Binary                         ;
+; C              ; 01000011 ; Unsigned Binary                         ;
+; D              ; 01000100 ; Unsigned Binary                         ;
+; E              ; 01000101 ; Unsigned Binary                         ;
+; F              ; 01000110 ; Unsigned Binary                         ;
+; G              ; 01000111 ; Unsigned Binary                         ;
+; H              ; 01001000 ; Unsigned Binary                         ;
+; I              ; 01001001 ; Unsigned Binary                         ;
+; J              ; 01001010 ; Unsigned Binary                         ;
+; K              ; 01001011 ; Unsigned Binary                         ;
+; L              ; 01001100 ; Unsigned Binary                         ;
+; M              ; 01001101 ; Unsigned Binary                         ;
+; N              ; 01001110 ; Unsigned Binary                         ;
+; O              ; 01001111 ; Unsigned Binary                         ;
+; P              ; 01010000 ; Unsigned Binary                         ;
+; Q              ; 01010001 ; Unsigned Binary                         ;
+; R              ; 01010010 ; Unsigned Binary                         ;
+; S              ; 01010011 ; Unsigned Binary                         ;
+; T              ; 01010100 ; Unsigned Binary                         ;
+; U              ; 01010101 ; Unsigned Binary                         ;
+; V              ; 01010110 ; Unsigned Binary                         ;
+; W              ; 01010111 ; Unsigned Binary                         ;
+; X              ; 01011000 ; Unsigned Binary                         ;
+; Y              ; 01011001 ; Unsigned Binary                         ;
+; Z              ; 01011010 ; Unsigned Binary                         ;
+; Z0             ; 00110000 ; Unsigned Binary                         ;
+; I1             ; 00110001 ; Unsigned Binary                         ;
+; II             ; 00110010 ; Unsigned Binary                         ;
+; III            ; 00110011 ; Unsigned Binary                         ;
+; IV             ; 00110100 ; Unsigned Binary                         ;
+; V5             ; 00110101 ; Unsigned Binary                         ;
+; VI             ; 00110110 ; Unsigned Binary                         ;
+; VII            ; 00110111 ; Unsigned Binary                         ;
+; VIII           ; 00111000 ; Unsigned Binary                         ;
+; VIIII          ; 00111001 ; Unsigned Binary                         ;
++----------------+----------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: speed_select:speed_select ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; bps9600        ; 5208  ; Signed Integer                                ;
+; bps19200       ; 2603  ; Signed Integer                                ;
+; bps38400       ; 1301  ; Signed Integer                                ;
+; bps57600       ; 867   ; Signed Integer                                ;
+; bps115200      ; 434   ; Signed Integer                                ;
+; bps256000      ; 195   ; Signed Integer                                ;
+; bps9600_2      ; 2604  ; Signed Integer                                ;
+; bps19200_2     ; 1301  ; Signed Integer                                ;
+; bps38400_2     ; 650   ; Signed Integer                                ;
+; bps57600_2     ; 433   ; Signed Integer                                ;
+; bps115200_2    ; 217   ; Signed Integer                                ;
+; bps256000_2    ; 97    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "enc:enc"                                                                                                 ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; home ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; led  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "my_uart_tx:my_uart_tx"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; tx_complete ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; error       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "my_uart_rx:my_uart_rx"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; rx_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+    Info: Processing started: Wed Jun 08 12:52:18 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top -c top
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file top.v
+    Info (12023): Found entity 1: top File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file enc.v
+    Info (12023): Found entity 1: enc File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/enc.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file speed_select.v
+    Info (12023): Found entity 1: speed_select File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: my_uart_rx File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_rx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: my_uart_tx File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_tx.v Line: 1
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top.v(101): object "linkBIM" assigned a value but never read File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 101
+Warning (10036): Verilog HDL or VHDL warning at top.v(105): object "enable_enc" assigned a value but never read File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 105
+Info (10264): Verilog HDL Case Statement information at top.v(175): all case item expressions in this case statement are onehot File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 175
+Warning (10230): Verilog HDL assignment warning at top.v(222): truncated value with size 32 to match size of target (24) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 222
+Info (12128): Elaborating entity "speed_select" for hierarchy "speed_select:speed_select" File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 120
+Warning (10230): Verilog HDL assignment warning at speed_select.v(40): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 40
+Warning (10230): Verilog HDL assignment warning at speed_select.v(41): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 41
+Warning (10230): Verilog HDL assignment warning at speed_select.v(44): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 44
+Warning (10230): Verilog HDL assignment warning at speed_select.v(45): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 45
+Warning (10230): Verilog HDL assignment warning at speed_select.v(48): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 48
+Warning (10230): Verilog HDL assignment warning at speed_select.v(49): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 49
+Warning (10230): Verilog HDL assignment warning at speed_select.v(52): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 52
+Warning (10230): Verilog HDL assignment warning at speed_select.v(53): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 53
+Warning (10230): Verilog HDL assignment warning at speed_select.v(56): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 56
+Warning (10230): Verilog HDL assignment warning at speed_select.v(57): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 57
+Warning (10230): Verilog HDL assignment warning at speed_select.v(60): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 60
+Warning (10230): Verilog HDL assignment warning at speed_select.v(61): truncated value with size 32 to match size of target (13) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 61
+Warning (10240): Verilog HDL Always Construct warning at speed_select.v(31): inferring latch(es) for variable "uart_ctrl", which holds its previous value in one or more paths through the always construct File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.101" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.100" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.011" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.010" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.001" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (10041): Inferred latch for "uart_ctrl.000" at speed_select.v(31) File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/speed_select.v Line: 31
+Info (12128): Elaborating entity "my_uart_rx" for hierarchy "my_uart_rx:my_uart_rx" File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 129
+Info (12128): Elaborating entity "my_uart_tx" for hierarchy "my_uart_tx:my_uart_tx" File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 139
+Warning (10034): Output port "error" at uart_tx.v(10) has no driver File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_tx.v Line: 10
+Info (12128): Elaborating entity "enc" for hierarchy "enc:enc" File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/top.v Line: 148
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (18000): Registers with preset signals will power-up high File: D:/projects/07_source_code/auto_tools/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_twrkv46/uart_tx.v Line: 87
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 2 output pins
+    Info (21060): Implemented 3 bidirectional pins
+    Info (21061): Implemented 235 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 743 megabytes
+    Info: Processing ended: Wed Jun 08 12:52:32 2016
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:26
+
+
