@@ -94,6 +94,8 @@ def analysis_yml(boardyml, context):
   io_dic, bus_scope = analysis.analysis_context(boardyml)
   print io_dic
   print bus_scope
+  if io_dic is None:
+    return None
   IO_DIC = io_dic
   INIT_REG_TEXT, CMD_CASE_TEXT, RST_REG_TEXT, DFT_REG_TEXT = cpld.Code_verilog_reg(io_dic)  
   context['INIT_REG_TEXT'] = as_escaped(INIT_REG_TEXT)
@@ -112,6 +114,7 @@ def analysis_yml(boardyml, context):
   context['ASSIGN_TEXT'] = ASSIGN_TEXT
   IP_TEXT = cpld.ip_caller(io_dic)
   context['IP_TEXT'] = IP_TEXT
+  return True
 
 
 def generate(boardyml):
@@ -129,12 +132,16 @@ def generate(boardyml):
     'DFT_REG_TEXT': ''
   }
 
-  analysis_yml(boardyml, context)
+  ret = analysis_yml(boardyml, context)
  
+  if ret is None:
+    return None
   ## render template with context data
+  print "rend data*******************"
   topv = engine.render(VERILOG_TEMPLATE_PATH, context)
 
   save_template_to_file(VERILOG_OUTPUT_PATH, 'top', topv)
+  print VERILOG_OUTPUT_PATH
 
 
 

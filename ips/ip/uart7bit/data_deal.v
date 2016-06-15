@@ -44,24 +44,33 @@ module data_deal(
 	
 	
 	
-	reg		[6:0]	data_reg;
+	reg		[6:0]	data_reg[7:0];
+	reg		[3:0]	data_regnum;
 	reg				data_ok;
 	
 	reg		[6:0]	data_out;
 	reg				data_out_sign;
-	reg				data_in_sign_reg;
-	
-	
+
 	always @(posedge  clk or negedge rst_n)begin
 		if(!rst_n)begin
-			data_reg <= 7'h0;
+			data_reg[0] <= 7'h0;
+			data_reg[1] <= 7'h0;
+			data_reg[2] <= 7'h0;
+			data_reg[3] <= 7'h0;
+			data_reg[4] <= 7'h0;
+			data_reg[5] <= 7'h0;
+			data_reg[6] <= 7'h0;
+			data_reg[7] <= 7'h0;
+			data_regnum <= 4'h0;
 			data_ok <= 1'h0;
-			data_in_sign_reg <= 1'b0;
+		end	
+		else if(data_regnum == 4'h8) begin
+			data_ok <=  ((data_reg[0]+data_reg[1]+data_reg[2]+data_reg[3]+data_reg[4]+data_reg[5]+data_reg[6]+data_reg[7]== 7'd28)||
+			(data_reg[0]+data_reg[1]+data_reg[2]+data_reg[3]+data_reg[4]+data_reg[5]+data_reg[6]+data_reg[7]== 7'd36))?1'b1:1'b0;
 		end
 		else begin	
-			data_in_sign_reg <= data_in_sign;
-			data_reg <= data_in_sign ? data_reg + 1'b1 : data_reg;
-			data_ok <= data_in_sign_reg ? &(data_reg ~^ data_in) : data_ok;
+			data_regnum <= data_in_sign ? data_regnum + 1'b1 : data_regnum;
+			data_reg[data_regnum] <= data_in_sign ? data_in : data_reg[data_regnum];
 		end
 	end
 	
@@ -71,7 +80,7 @@ module data_deal(
 			data_out_sign <= 1'b0;
 			data_out <= 'h0;
 		end
-		else begin	
+		else if(data_regnum < 4'h7)begin
 			if(~data_out_sign & data_valid)		data_out_sign <= 1'b1;
 			else 								data_out_sign <= 1'b0;
 			data_out <= ~data_out_sign & data_valid ? data_out + 1'b1 : data_out;

@@ -1,0 +1,21 @@
+#FRDM: A-B-C-D
+
+POWER_MANAGER:
+    CMD: PMH
+    FUNC0:
+        T_PIN: CPLD_IO3
+        A_PIN: IRQ_E_K70
+        DIRECTION: A2T
+
+ENC:
+    IP: __ENC
+    CMD: ENC
+    pha_out:
+        PIN: B8
+        DIRECTION: out
+    phb_out:
+        PIN: A10
+        DIRECTION: out
+    index_out:
+        PIN: CPLD_IO50
+        DIRECTION: out

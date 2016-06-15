@@ -411,14 +411,14 @@ def analysis_context(boardyml):
   io_dic = map_io(modules)
   print io_dic
   if io_dic is None:
-    return None
+    return None, None
 
 
   bus_scope, Used_io = cpld_io_analyze(io_dic)
   
   if Used_io is None:
     print ("Error: Bus Definition!")
-    return None
+    return None, None
 
   #Generate  my_uart_top.v
   #---------------------------------------------
