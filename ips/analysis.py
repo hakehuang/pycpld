@@ -26,7 +26,7 @@ BOARD_CPLD_QSF_TEMPLATE = {
     'TWR_CPLD_V1':  __PATH__ + "/template/twr/top_qsf_template.qsf",
     'FRDM_CPLD_V1': __PATH__ + "/template/frdm/top_qsf_template.qsf",
     'TWR_CPLD_V2':  __PATH__ + "/template/twrv2/top_qsf_template.qsf",
-    'FRDM_CPLD_V2': __PATH__ + "/template/twr/top_qsf_template.qsf",
+    'FRDM_CPLD_V2': __PATH__ + "/template/frdmv2/top_qsf_template.qsf",
     'EP570_CPLD': __PATH__ + "/template/ep570/top_qsf_template.qsf" 
 }
 
@@ -34,7 +34,7 @@ BOARD_CPLD_TCL_TEMPLATE = {
     'TWR_CPLD_V1':  __PATH__ + "/template/twr/top_tcl_template.tcl",
     'FRDM_CPLD_V1': __PATH__ + "/template/frdm/top_tcl_template.tcl",
     'TWR_CPLD_V2':  __PATH__ + "/template/twrv2/top_tcl_template.tcl",
-    'FRDM_CPLD_V2': __PATH__ + "/template/twr/top_tcl_template.tcl",
+    'FRDM_CPLD_V2': __PATH__ + "/template/frdmv2/top_tcl_template.tcl",
     'EP570_CPLD': __PATH__ + "/template/ep570/top_tcl_template.tcl" 
 }
 
