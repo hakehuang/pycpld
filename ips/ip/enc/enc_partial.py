@@ -32,7 +32,7 @@ class ENC(base_ip.base_ip):
     return """ 
 enc  enc( .rst_n(rst_n),
           .freq_clk(clk),
-          .enable(linkENC),
+          .enable(enable_enc),
 			    .pha(pha_out), 
 			    .phb(phb_out), 
 			    .home(home_out), 
