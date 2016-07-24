@@ -1,0 +1,64 @@
+#this is a example of how ENC ip is used in our yaml
+MODE0:
+    IP: __QUADPWM
+    CMD: AAA
+    pwm0:
+        PIN: A34
+        DIRECTION: out
+    pwm1:
+        PIN: A33
+        DIRECTION: out
+    pwm2:
+        PIN: CPLD_IO50
+        DIRECTION: out
+    pwm3:
+        PIN: CPLD_IO52
+        DIRECTION: out
+
+MODE0:
+    IP: __QUADPWM
+    CMD: AAB
+    pwm0:
+        PIN: A34
+        DIRECTION: out
+    pwm1:
+        PIN: A33
+        DIRECTION: out
+    pwm2:
+        PIN: CPLD_IO50
+        DIRECTION: out
+    pwm3:
+        PIN: CPLD_IO52
+        DIRECTION: out
+
+MODE0:
+    IP: __QUADPWM
+    CMD: AAC
+    pwm0:
+        PIN: A34
+        DIRECTION: out
+    pwm1:
+        PIN: A33
+        DIRECTION: out
+    pwm2:
+        PIN: CPLD_IO50
+        DIRECTION: out
+    pwm3:
+        PIN: CPLD_IO52
+        DIRECTION: out
+
+MODE0:
+    IP: __QUADPWM
+    CMD: AAB
+    pwm0:
+        PIN: A34
+        DIRECTION: out
+    pwm1:
+        PIN: A33
+        DIRECTION: out
+    pwm2:
+        PIN: CPLD_IO50
+        DIRECTION: out
+    pwm3:
+        PIN: CPLD_IO52
+        DIRECTION: out

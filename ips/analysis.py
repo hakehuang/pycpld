@@ -6,6 +6,7 @@ import ip
 from ip.uart.uart_partial import UART
 from ip.enc.enc_partial import ENC
 from ip.uart7bit.uart7bit_partial import UART7BIT
+form ip.quadpwm.quadpwm_partial import QUADPWM
 
 __PATH__        = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
 
