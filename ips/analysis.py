@@ -6,6 +6,8 @@ import ip
 from ip.uart.uart_partial import UART
 from ip.enc.enc_partial import ENC
 from ip.uart7bit.uart7bit_partial import UART7BIT
+from ip.pwm_out.pwm_out_partial import PWM_OUT
+from ip.pwm_capture.pwm_capture_partial import PWM_CAPTURE
 
 __PATH__        = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
 
@@ -101,7 +103,7 @@ def remap_pin(pin):
   return pin
 
 
-
+# the valid direction are A2T T2A T2T
 def parser_pin_in_out(connection, switch):
   d = connection["DIRECTION"]
   in_type  = d[0]
@@ -173,7 +175,9 @@ def print_classes():
       if inspect.isclass(obj):
         print(obj)
 
-
+#parse IP pins
+# do not use the assistant used pins
+# only target pins are used
 def parser_pin_ip(connection, conname):
   d = connection["DIRECTION"]
   PIN_OUT = None
@@ -185,6 +189,13 @@ def parser_pin_ip(connection, conname):
     if PIN_OUT is None:
       PIN_OUT = look_up_table(p_out, 'NONE')
     print PIN_OUT
+  elif d.upper() == "INOUT":
+    p_io = connection["PIN"]
+    print p_io
+    PIN_OUT = look_up_table(p_io, 'T')
+    if PIN_OUT is None:
+      PIN_OUT = look_up_table(p_out, 'NONE')
+    PIN_IN = PIN_OUT
   else:
     p_in = connection["PIN"]
     PIN_IN = look_up_table(p_in, 'T')

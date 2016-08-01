@@ -1,0 +1,10 @@
+#this is a example of how ENC ip is used in our yaml
+PWM_CAPTURE:
+    IP: __PWM_CAPTURE
+    CMD: CAP
+    pwm_input:
+        PIN: A34
+        DIRECTION: in
+        
+
+

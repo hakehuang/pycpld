@@ -1,0 +1,10 @@
+#this is a example of how ENC ip is used in our yaml
+PWM_OUT:
+    IP: __PWM_OUT
+    CMD: PWM
+    pha:
+        PIN: A34
+        DIRECTION: out
+    phb:
+        PIN: A33
+        DIRECTION: out

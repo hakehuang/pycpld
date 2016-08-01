@@ -1,4 +1,4 @@
-import yaml, os, re
+import yaml, os, re,sys
 
 import analysis
 
@@ -45,6 +45,8 @@ TO_WIRE_TEXT = "wire %s;\n"
 TO_REG_INIT_TEXT = "reg %s;\n"
 
 TO_ASSIGN_TEXT = "assign %s =  %s ? %s : 1'bz;\n"
+
+TO_ALIAS_TEXT = '`define %s %s\n'
 
 IP_TEXT = "%s\n"
 
@@ -99,6 +101,7 @@ def get_busname_by_id(bus_scope_list, bid):
 
 def assign(io_dic,bus_scope_list):
   global BUS_LIST
+  isolated_inout_pins = []
   # INIT_REG_TEXT block
   ASSIGN_TEXT = ''
   for cmd in io_dic:
@@ -125,23 +128,77 @@ def assign(io_dic,bus_scope_list):
           bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
           ASSIGN_TEXT +=  TO_ASSIGN_TEXT%(bus_assign_1, LINKCMD, settings[3])
           BUS_LIST.append([bus_assign_1,settings[1]])
-        else:
+        elif settings[1] is None:
           #inut pin
           busname_0 = get_busname_by_id(bus_scope_list, settings[0])
           bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
           ASSIGN_TEXT +=  TO_ASSIGN_TEXT%(settings[3], LINKCMD, bus_assign_0)
           BUS_LIST.append([bus_assign_0,settings[0]])
+        else:
+          #inout pins
+          busname = get_busname_by_id(bus_scope_list, settings[0])
+          bus_assign = "%s[%s]"%(busname, settings[1])
+          ASSIGN_TEXT += TO_ALIAS_TEXT%(settings[3], bus_assign)
+          isolated_inout_pins.append(bus_assign)
       elif len(settings) == 3 and settings.__class__.__name__ == "tuple":
         #normal pin settings
         busname_0 = get_busname_by_id(bus_scope_list, settings[0])
         busname_1 = get_busname_by_id(bus_scope_list, settings[1])
         bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
         bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
+
         ASSIGN_TEXT += TO_ASSIGN_TEXT%(bus_assign_1, LINKCMD, bus_assign_0)
         BUS_LIST.append([bus_assign_0,settings[0]])
         BUS_LIST.append([bus_assign_1,settings[1]])
       else: #not a pin setting
         pass
+  #check the inout constrains
+  #in cpld the inout pins that used by ips can not be used as in/out agains
+  for cmd in io_dic:
+    cinst = None
+    LINKCMD = LINK_NAME%cmd
+    isbuildin = False
+    for settings in io_dic[cmd]:
+      if len(settings) == 5:
+        #this has a IP settings
+        if settings[4] in analysis.IP_DICT['class']:
+          for inst in analysis.IP_DICT['inst']:
+            if inst.__class__.__name__ == settings[4]:
+              cinst = inst
+              if settings[3] == "BIM":
+                print "a build in moudle does not need special settings"
+                isbuildin = True
+      if isbuildin == True:
+        continue
+      if cinst is not None and len(settings) == 5 and settings.__class__.__name__ == "tuple":
+        if settings[0] is None:
+          #output pin
+          busname_1 = get_busname_by_id(bus_scope_list, settings[1])
+          bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
+          if (bus_assign_1 in isolated_inout_pins):
+            print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+            sys.exit()
+        elif settings[1] is None:
+          #inut pin
+          busname_0 = get_busname_by_id(bus_scope_list, settings[0])
+          bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
+          if (bus_assign_0 in isolated_inout_pins):
+            print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+            sys.exit()          
+        else:
+          pass
+      elif len(settings) == 3 and settings.__class__.__name__ == "tuple":
+        #normal pin settings
+        busname_0 = get_busname_by_id(bus_scope_list, settings[0])
+        busname_1 = get_busname_by_id(bus_scope_list, settings[1])
+        bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
+        bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
+        if (bus_assign_0 in isolated_inout_pins or bus_assign_1 in isolated_inout_pins):
+          print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+          sys.exit()  
+      else: #not a pin setting
+        pass
+
   return ASSIGN_TEXT
 
 def reg(io_dic):

@@ -92,7 +92,9 @@ def save_template_to_file(outpath, output_file_name, template):
 #analyze the boardyml and update the context for tempale
 def analysis_yml(boardyml, context):
   io_dic, bus_scope = analysis.analysis_context(boardyml)
+  print "io_dic"
   print io_dic
+  print "bus_scope"
   print bus_scope
   if io_dic is None:
     return None

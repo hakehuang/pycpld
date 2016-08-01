@@ -70,7 +70,7 @@
     PINS: B58
 17:
     TYPE: A
-    FUNC: NONE
+    FUNC: A35_K70
     PINS: A35
 18:
     TYPE: A
