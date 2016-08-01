@@ -8,6 +8,7 @@ from ip.enc.enc_partial import ENC
 from ip.uart7bit.uart7bit_partial import UART7BIT
 from ip.pwm_out.pwm_out_partial import PWM_OUT
 from ip.pwm_capture.pwm_capture_partial import PWM_CAPTURE
+form ip.quadpwm.quadpwm_partial import QUADPWM
 
 __PATH__        = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
 

@@ -1,1 +1,1 @@
-all = ["enc", "uart", "uart7bit", "pwm_out", "pwm_capture"]
+all = ["enc", "uart", "uart7bit", "pwm_out", "pwm_capture", "quadpwm"]
