@@ -66,6 +66,21 @@ TO_DFT_REG_TEXT = "%s // linkFCP <= 1'b0;\n"
 ##################################################################
 #CODE GENERATE SECTION
 ##################################################################
+def get_ip_inst(ipname, cmd_key):
+  cinst = None
+  if ipname in analysis.IP_DICT['class']:
+    for inst in analysis.IP_DICT['inst']:
+      if inst.__class__.__name__ == ipname:
+        if hasattr(inst, 'ALT_CMD'):
+          if inst.ALT_CMD == cmd_key:
+            cinst = inst
+            break
+        else:
+          cinst = inst
+          break
+  return cinst
+
+
 def ip_caller(io_dic):
   IP_TEXT = ''
   for cmd in io_dic:
@@ -74,10 +89,12 @@ def ip_caller(io_dic):
     for settings in io_dic[cmd]:
       if len(settings) == 5:
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
+        cinst = get_ip_inst(settings[4], cmd)
+        break
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       cinst = inst
     #ensure we find the inst
     if cinst is not None:
       if cinst.get_module_caller() not in IP_TEXT:
@@ -109,15 +126,18 @@ def assign(io_dic,bus_scope_list):
     LINKCMD = LINK_NAME%cmd
     isbuildin = False
     for settings in io_dic[cmd]:
+      isbuildin = False
       if len(settings) == 5:
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
-              if settings[3] == "BIM":
-                print "a build in moudle does not need special settings"
-                isbuildin = True
+        if settings[3] == "BIM":
+          print "a build in moudle does not need special settings"
+          isbuildin = True
+        else:
+          cinst = get_ip_inst(settings[4] ,cmd)
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       cinst = inst
       if isbuildin == True:
         continue
       #ensure we find the inst
@@ -138,8 +158,9 @@ def assign(io_dic,bus_scope_list):
           #inout pins
           busname = get_busname_by_id(bus_scope_list, settings[0])
           bus_assign = "%s[%s]"%(busname, settings[1])
-          ASSIGN_TEXT += TO_ALIAS_TEXT%(settings[3], bus_assign)
-          isolated_inout_pins.append(bus_assign)
+          if (bus_assign not in isolated_inout_pins):
+            ASSIGN_TEXT += TO_ALIAS_TEXT%(settings[3], bus_assign)
+            isolated_inout_pins.append(bus_assign)
       elif len(settings) == 3 and settings.__class__.__name__ == "tuple":
         #normal pin settings
         busname_0 = get_busname_by_id(bus_scope_list, settings[0])
@@ -159,15 +180,23 @@ def assign(io_dic,bus_scope_list):
     LINKCMD = LINK_NAME%cmd
     isbuildin = False
     for settings in io_dic[cmd]:
+      isbuildin = False
       if len(settings) == 5:
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
-              if settings[3] == "BIM":
-                print "a build in moudle does not need special settings"
-                isbuildin = True
+        if settings[3] == "BIM":
+          print "a build in moudle does not need special settings"
+          isbuildin = True
+        else:
+          cinst = get_ip_inst(settings[4], cmd)
+          break
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       if hasattr(inst, 'alt'):
+        #         if inst.alt == cmd:
+        #           cinst = inst
+        #       else:
+        #         cinst = inst
       if isbuildin == True:
         continue
       if cinst is not None and len(settings) == 5 and settings.__class__.__name__ == "tuple":
@@ -210,10 +239,15 @@ def reg(io_dic):
     for settings in io_dic[cmd]:
       if len(settings) == 5:
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
+        cinst = get_ip_inst(settings[4], cmd)
+        break
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       if hasattr(inst, 'alt'):
+        #         if inst.alt == cmd:
+        #       else
+        #         cinst = inst
     #ensure we find the inst
     if cinst is not None:
       if cinst.get_reg_defines() not in REG_TEXT:
@@ -228,10 +262,12 @@ def wire(io_dic):
     for settings in io_dic[cmd]:
       if len(settings) == 5:
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
+        cinst = get_ip_inst(settings[4], cmd)
+        break
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       cinst = inst
     #ensure we find the inst
     if cinst is not None:
       if cinst.get_wire_defines() not in WIRE_TEXT:
@@ -277,15 +313,19 @@ def Code_verilog_reg(io_dic):
     isbuildin = False
     LINKCMD = LINK_NAME%cmd
     for settings in io_dic[cmd]:
+      isbuildin = False
       if len(settings) == 5 and settings.__class__.__name__ == "tuple":
         if settings[3] == "BIM":
           print "a build in moudle does not need special settings"
           isbuildin = True
+          continue
         #this has a IP settings
-        if settings[4] in analysis.IP_DICT['class']:
-          for inst in analysis.IP_DICT['inst']:
-            if inst.__class__.__name__ == settings[4]:
-              cinst = inst
+        cinst = get_ip_inst(settings[4], cmd)
+        break
+        # if settings[4] in analysis.IP_DICT['class']:
+        #   for inst in analysis.IP_DICT['inst']:
+        #     if inst.__class__.__name__ == settings[4]:
+        #       cinst = inst
     if isbuildin == True:
       continue
     #ensure we find the inst

@@ -18,5 +18,5 @@ if __name__ == '__main__':
 		g.generate(boardyml)
 	else:
 		print ("error path: %s"%boardyml)
-
+	sys.stdout.flush()
 	os.system("pause")

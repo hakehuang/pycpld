@@ -69,9 +69,9 @@ if {$make_assignments} {
 
 	#default configurations
 	set_location_assignment PIN_12 -to clk
-	set_location_assignment PIN_1 -to rst_n
+	set_location_assignment PIN_44 -to rst_n
 	set_location_assignment PIN_6 -to rs232_rx
-	set_location_assignment PIN_7 -to led
+	set_location_assignment PIN_1 -to led
 
 	######################
 	#pin assignments part

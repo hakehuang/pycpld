@@ -13,3 +13,235 @@
 #|  C   | (5*2)  |   JJ_3   | ?
 #|  D   | (8*2)  |   JJ_4   | ?
 
+
+#SINGLE: default 0, if the pin header is single on FRDM-Board, this should be set 1
+SINGLE: 0
+
+
+CMP:
+    CMD: CMP
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+COP:
+    CMD: COP
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+EWM:
+    CMD: EWM
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+FTM:
+    CMD: FTM
+    PWM0:
+        T_PIN: ?
+        A_PIN: PWM0_K70
+        DIRECTION: T2A
+    PWM1:
+        T_PIN: ?
+        A_PIN: PWM1_K70
+        DIRECTION: T2A
+
+GPIO:
+    CMD: GPI
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+# I2C:
+#     CMD: I2C
+#     FUNC0:
+#         T_PIN: ?
+#         A_PIN: ?
+#         DIRECTION: A2T
+
+POWER_MANAGER:
+    CMD: PMH
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+DSPI_MASTER:
+    CMD: SPI
+    CLK:
+        T_PIN: ?
+        A_PIN: SPI1_CLK_K70
+        DIRECTION: T2A
+    CS:
+        T_PIN: ?
+        A_PIN: SPI1_CS0_K70
+        DIRECTION: T2A
+    MISO:
+        T_PIN: ?
+        A_PIN: SPI1_MISO_K70
+        DIRECTION: A2T
+    MOSI:
+        T_PIN: ?
+        A_PIN: SPI1_MOSI_K70
+        DIRECTION: T2A
+
+DSPI_SLAVE:
+    CMD: SSI
+    CLK:
+        T_PIN: ?
+        A_PIN: SPI1_CLK_K70
+        DIRECTION: A2T
+    CS:
+        T_PIN: ?
+        A_PIN: SPI1_CS0_K70
+        DIRECTION: A2T
+    MISO:
+        T_PIN: ?
+        A_PIN: SPI1_MISO_K70
+        DIRECTION: A2T
+    MOSI:
+        T_PIN: ?
+        A_PIN: SPI1_MOSI_K70
+        DIRECTION: T2A
+
+SPI_MASTER:
+    CMD: SPI
+    CLK:
+        T_PIN: ?
+        A_PIN: SPI1_CLK_K70
+        DIRECTION: T2A
+    CS:
+        T_PIN: ?
+        A_PIN: SPI1_CS0_K70
+        DIRECTION: T2A
+    MISO:
+        T_PIN: ?
+        A_PIN: SPI1_MISO_K70
+        DIRECTION: A2T
+    MOSI:
+        T_PIN: ?
+        A_PIN: SPI1_MOSI_K70
+        DIRECTION: T2A
+
+SPI_SLAVE:
+    CMD: SSI
+    CLK:
+        T_PIN: ?
+        A_PIN: SPI1_CLK_K70
+        DIRECTION: A2T
+    CS:
+        T_PIN: ?
+        A_PIN: SPI1_CS0_K70
+        DIRECTION: A2T
+    MISO:
+        T_PIN: ?
+        A_PIN: SPI1_MISO_K70
+        DIRECTION: T2A
+    MOSI:
+        T_PIN: ?
+        A_PIN: SPI1_MOSI_K70
+        DIRECTION: A2T
+
+TPM:
+    CMD: TPM
+    FUNC0:
+        T_PIN: ?
+        A_PIN: PWM0_K70
+        DIRECTION: T2A
+    FUNC1:
+        T_PIN: ?
+        A_PIN: PWM1_K70
+        DIRECTION: T2A
+
+WDOG:
+    CMD: WDG
+    FUNC0:
+        T_PIN: ?
+        A_PIN: B58
+        DIRECTION: A2T
+
+# FLEXIO_I2C:
+#     CMD: F2C
+#     FUNC0:
+#         T_PIN: ?
+#         A_PIN: ?
+#         DIRECTION: A2T
+
+FLEXIO_I2S:
+    CMD: FIS
+    TX:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: ?
+        NOTE: ?
+    RX:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: ?
+        NOTE: ?
+    CLK:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: ?
+        NOTE: ?
+    LRCLK:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: ?
+        NOTE: ?
+
+FLEXIO_SPI_Master:
+    CMD: FSM
+    CLK:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    CS:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    MISO:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    MOSI:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+
+FLEXIO_SPI_Slave:
+    CMD: FSS
+    CLK:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    CS:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    MISO:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+    MOSI:
+        T_PIN: ?
+        A_PIN: ?
+        DIRECTION: ?
+
+FLEXIO_UART:
+    CMD: FUT
+    RX:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: T2T
+        NOTE: ?
+    TX:
+        T_PIN_1: ?
+        T_PIN_2: ?
+        DIRECTION: T2T
+        NOTE: ?

@@ -195,7 +195,7 @@ def parser_pin_ip(connection, conname):
     print p_io
     PIN_OUT = look_up_table(p_io, 'T')
     if PIN_OUT is None:
-      PIN_OUT = look_up_table(p_out, 'NONE')
+      PIN_OUT = look_up_table(p_io, 'NONE')
     PIN_IN = PIN_OUT
   else:
     p_in = connection["PIN"]
@@ -238,7 +238,17 @@ def look_up_ip(module, switch):
         IP_DICT['inst'].append(sub_module_class_instance)
         IP_DICT['class'].append(sub_module_class_instance.__class__.__name__)
         if "ALT" in module:
+          print "*****************************"
+          print "set inst alt %s"%(module["ALT"])
           sub_module_class_instance.set_alt(module["ALT"])
+          sub_module_class_instance.ALT_CMD = mname
+      elif "ALT" in module:
+        print "*****************************"
+        print "set inst alt %s"%(module["ALT"])
+        IP_DICT['inst'].append(sub_module_class_instance)
+        IP_DICT['class'].append(sub_module_class_instance.__class__.__name__)
+        sub_module_class_instance.set_alt(module["ALT"])
+        sub_module_class_instance.ALT_CMD = mname
       break
 
   if ip_name is None:
