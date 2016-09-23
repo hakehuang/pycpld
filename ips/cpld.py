@@ -31,7 +31,8 @@ INOUT_TEXT = "inout [%d:%d] %s;\n"
 ASSIGN_TEXT = "assign %s =  %s ? %s : 1'bz;"
 
 #Verilog module definiton Syntax
-MODULE_TEXT = "module top(clk,rst_n,rs232_rx,rs232_tx, %s led);\n"
+#MODULE_TEXT = "module top(clk,rst_n,rs232_rx,rs232_tx, %s led);\n"
+MODULE_TEXT = "module top(clk,rst_n,rs232_rx, %s led);\n"
 
 #Verilog: reg assignment Syntax
 TO_REG_TEXT = "%s <= 1'b%d;\n"

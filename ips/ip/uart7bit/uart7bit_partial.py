@@ -10,7 +10,7 @@ class UART7BIT(base_ip.base_ip):
   ALT = ["a", "b"]
   def __init__(self, io_hash):
     self.dicts = io_hash
-    self.alt = "0"
+    self.alt = "a"
   def set_alt(self, in_alt):
     if in_alt in self.ALT:
       self.alt = in_alt

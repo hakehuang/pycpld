@@ -1,0 +1,40 @@
+SPI_MASTER:
+    IP: __SPI_MASTER
+    CMD: SIO
+    ALT: a 
+    sck:
+        PIN: A34
+        DIRECTION: OUT
+    mosi:
+        PIN: A36
+        DIRECTION: OUT
+    cs_n:
+        PIN: A37
+        DIRECTION: OUT   
+    miso:
+        PIN: A38
+        DIRECTION: IN
+    spi_receive_status:
+        PIN: A39
+        DIRECTION: OUT
+        
+SPI_MASTER1:
+    IP: __SPI_MASTER
+    CMD: SIT
+    ALT: b
+    sck:
+        PIN: A34
+        DIRECTION: OUT
+    mosi:
+        PIN: A36
+        DIRECTION: OUT
+    cs_n:
+        PIN: A37
+        DIRECTION: OUT   
+    miso:
+        PIN: A38
+        DIRECTION: IN
+    spi_receive_status:
+        PIN: A39
+        DIRECTION: OUT        
+

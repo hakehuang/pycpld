@@ -122,7 +122,8 @@ def analysis_yml(boardyml, context):
 def generate(boardyml):
   ## context data
   context = {
-    'MODULE_TEXT': 'module top(clk,rst_n,rs232_rx,rs232_tx, %s, led);',
+#    'MODULE_TEXT': 'module top(clk,rst_n,rs232_rx,rs232_tx, %s, led);',
+    'MODULE_TEXT': 'module top(clk,rst_n,rs232_rx, %s, led);',
     'INOUT_TEXT': '',
     'WIRE_TEXT': '',
     'REG_TEXT': '',

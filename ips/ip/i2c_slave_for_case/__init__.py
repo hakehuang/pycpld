@@ -1,0 +1,2 @@
+from i2c_slave_for_case_partial import get_ip_name
+from i2c_slave_for_case_partial import I2C_SLAVE_FOR_CASE
