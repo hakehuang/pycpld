@@ -1,1 +1,2 @@
-Tenjin=1.1.0
+Tenjin==1.1.0
+PyYAML==3.12

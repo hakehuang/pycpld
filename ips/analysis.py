@@ -12,9 +12,9 @@ from ip.i2c_master.i2c_master_partial import I2C_MASTER
 from ip.i2c_slave.i2c_slave_partial import I2C_SLAVE
 from ip.i2c_slave_for_case.i2c_slave_for_case_partial import I2C_SLAVE_FOR_CASE
 from ip.spi_master.spi_master_partial import SPI_MASTER
-from ip.uart8bit.uart8bit_partial import UART8BIT
+#from ip.uart8bit.uart8bit_partial import UART8BIT
 from ip.sw_pulse.sw_pulse_partial import SW_PULSE
-form ip.quadpwm.quadpwm_partial import QUADPWM
+from ip.quadpwm.quadpwm_partial import QUADPWM
 
 __PATH__        = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
 
