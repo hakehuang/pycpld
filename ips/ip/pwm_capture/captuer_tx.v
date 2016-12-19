@@ -32,6 +32,7 @@ always @ (posedge clk or negedge rst_n) begin
 
 	if (!rst_n)begin
 		tx_start <= 1'b1;
+        tx_data <= 'hzz;
 	end
 	else if(capture_ready && (tx_counter >'d600))begin
 	   case(tx_count)
@@ -69,7 +70,7 @@ always @ (posedge clk or negedge rst_n) begin
 			end
 			default:begin
 				tx_start <= 1'b1;
-				tx_data <= 'hff;
+				tx_data <= 'hzz;
 			end
 		endcase
 	end

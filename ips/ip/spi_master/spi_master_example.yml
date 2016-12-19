@@ -2,16 +2,16 @@ SPI_MASTER:
     IP: __SPI_MASTER
     CMD: SIO
     ALT: a 
-    sck:
+    sm_sck:
         PIN: A34
         DIRECTION: OUT
-    mosi:
+    sm_mosi:
         PIN: A36
         DIRECTION: OUT
-    cs_n:
+    sm_cs_n:
         PIN: A37
         DIRECTION: OUT   
-    miso:
+    sm_miso:
         PIN: A38
         DIRECTION: IN
     spi_receive_status:
@@ -22,16 +22,16 @@ SPI_MASTER1:
     IP: __SPI_MASTER
     CMD: SIT
     ALT: b
-    sck:
+    sm_sck:
         PIN: A34
         DIRECTION: OUT
-    mosi:
+    sm_mosi:
         PIN: A36
         DIRECTION: OUT
-    cs_n:
+    sm_cs_n:
         PIN: A37
         DIRECTION: OUT   
-    miso:
+    sm_miso:
         PIN: A38
         DIRECTION: IN
     spi_receive_status:

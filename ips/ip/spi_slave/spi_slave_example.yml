@@ -1,0 +1,19 @@
+SPI_SLAVE:
+    IP: __SPI_SLAVE
+    CMD: SPS
+    ALT: a 
+    ss_sck:
+        PIN: A34
+        DIRECTION: IN
+    ss_mosi:
+        PIN: A36
+        DIRECTION: IN
+    ss_ssel:
+        PIN: A37
+        DIRECTION: IN   
+    ss_miso:
+        PIN: A38
+        DIRECTION: OUT
+    spi_slave_result:
+        PIN: A39
+        DIRECTION: OUT

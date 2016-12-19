@@ -34,8 +34,6 @@ input spi_rx_en;
 
 input mode_select;
 
-
-
 reg[7:0] data_count;
 
 reg[7:0] recv_detect;
@@ -79,29 +77,29 @@ always @(posedge clk or negedge rst_n) begin
 		recv_detect <= 8'h0;
 		end
 	else if((spi_tx_en || spi_rx_en) && ((data_count < 8'd64) )) begin
-				if(cnt8 < mode_reg)
-					cnt8 <= cnt8+1'b1;
+		if(cnt8 < mode_reg)
+			cnt8 <= cnt8+1'b1;
+		else begin
+			if(spi_tx_en && spi_rx_en) begin
+				cnt8 <= 5'd0;
+				data_count <= data_count + 1'b1;
+				spi_tx_db <= spi_tx_db + 1'b1;
+				recv_detect <= (spi_rx_db == data_count) ? (recv_detect+1'b1) : recv_detect;
+				end
+			else begin
+				if(spi_tx_en) begin
+					cnt8 <= 5'd0;
+					data_count <= data_count + 1'b1;
+					spi_tx_db <= spi_tx_db + 1'b1;
+				end
 				else begin
-					if(spi_tx_en && spi_rx_en) begin
-					cnt8 <= 5'd0;
-					data_count <= data_count + 1'b1;
-					spi_tx_db <= spi_tx_db + 1'b1;
-					recv_detect <= (spi_rx_db == data_count) ? (recv_detect+1'b1) : recv_detect;
-					end
-					else begin
-					if(spi_tx_en) begin
-					cnt8 <= 5'd0;
-					data_count <= data_count + 1'b1;
-					spi_tx_db <= spi_tx_db + 1'b1;
-					end
-					else begin
 					cnt8 <= 5'd0;
 					data_count <= data_count + 1'b1;
 					recv_detect <= (spi_rx_db == data_count) ? (recv_detect+1'b1) : recv_detect;
-					end
-					end
 				end
 			end
+		end
+	end
 	else begin 
 	 cnt8 <= 5'd0;
 	 data_count <= data_count;
@@ -112,9 +110,9 @@ end
 *generate spi clk
 ***********************************************************************/
 always @(posedge clk or negedge rst_n) begin
-	if(!rst_n) 
-		spi_clkr <= mode_select ? 1'b1 : 1'b0 ;
-	else if(cnt8 > start_reg && cnt8 < mode_reg) 
+	if(!rst_n)
+		spi_clkr <= mode_select ? 1'b1 : 1'b0;
+	else if(cnt8 > start_reg && cnt8 < mode_reg)
 				spi_clkr <= ~spi_clkr;
 			else
 				spi_clkr <= spi_clkr;

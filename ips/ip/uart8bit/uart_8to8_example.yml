@@ -1,0 +1,42 @@
+#this is a example of how ENC ip is used in our yaml
+UART_8BIT:
+    IP: __UART8BIT
+    CMD: UST
+    ALT: a
+    rs232_tx8to8:
+        PIN: CPLD_IO2
+        DIRECTION: out
+    rs232_rx8to8:
+        PIN: CPLD_IO3
+        DIRECTION: in
+    compara_error:
+        PIN: CPLD_IO4
+        DIRECTION: out
+
+UART_8BIT1:
+    IP: __UART8BIT
+    CMD: LUT
+    ALT: b 
+    rs232_tx8to8:
+        PIN: CPLD_IO5
+        DIRECTION: out
+    rs232_rx8to8:
+        PIN: CPLD_IO6
+        DIRECTION: in
+    compara_error:
+        PIN: CPLD_IO7
+        DIRECTION: out
+        
+UART_8BIT2:
+    IP: __UART8BIT
+    CMD: UFT
+    ALT: c
+    rs232_tx8to8:
+        PIN: CPLD_IO8
+        DIRECTION: out
+    rs232_rx8to8:
+        PIN: CPLD_IO9
+        DIRECTION: in
+    compara_error:
+        PIN: CPLD_IO10
+        DIRECTION: out

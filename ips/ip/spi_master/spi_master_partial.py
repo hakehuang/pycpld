@@ -29,13 +29,13 @@ class SPI_MASTER(base_ip.base_ip):
 			 os.path.join(pkgpath,"spi_master.v"),]
   def get_module_caller(self):
     return """
-spi_ctrl        spi_ctrl_instance(
+spi_ctrl      spi_ctrl_instance(
 							.clk(clk),
 							.rst_n(spi_rst),
-							.sck(sck),
-							.mosi(mosi),
-							.miso(miso),
-							.cs_n(cs_n),
+							.sck(sm_sck),
+							.mosi(sm_mosi),
+							.miso(sm_miso),
+							.cs_n(sm_cs_n),
 							.spi_tx_en(spi_tx_en),
 							.spi_rx_en(spi_rx_en),
 							.mode_select(mode_select),
@@ -45,10 +45,10 @@ spi_ctrl        spi_ctrl_instance(
 
   def get_wire_defines(self):
     return """
-wire sck;
-wire mosi;
-wire miso;
-wire cs_n;
+wire sm_sck;
+wire sm_mosi;
+wire sm_miso;
+wire sm_cs_n;
 wire spi_receive_status;
           """
 
@@ -69,6 +69,7 @@ reg mode_select;
      """
   def get_cmd_case_text(self):
     if self.alt == self.ALT[0]:
+    #active high, raising edge, msb first
 	  return """
         spi_rst <= 1'b1;
         spi_tx_en <= 1'b1;
@@ -76,6 +77,7 @@ reg mode_select;
         mode_select <= 1'b0;
         """
     else:
+    #active low, raising edge, msb first
         return """
         spi_rst <= 1'b1;
         spi_tx_en <= 1'b1;

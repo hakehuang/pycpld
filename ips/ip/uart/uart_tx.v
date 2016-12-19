@@ -81,8 +81,8 @@ always @ (negedge baud_clk or negedge rst_n)
 begin
 	if (!rst_n)
 	begin
-		uart_tx_reg <= 1'b1;
-		tx_data_reg <= 8'd0;
+		uart_tx_reg <= 1'bz;
+		tx_data_reg <= 8'dz;
 	end
 	else if (!baud_clk)
 	begin
@@ -97,7 +97,7 @@ begin
 			4'd8:	uart_tx_reg <= tx_data_reg[6];
 			4'd9: uart_tx_reg <= tx_data_reg[7];
 			4'd0: uart_tx_reg <= 1'b1;
-			default: uart_tx_reg <= 1'b1;
+			default: uart_tx_reg <= 1'bz;
 		endcase
 	end
 end

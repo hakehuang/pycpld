@@ -48,6 +48,7 @@ pwm_capture		 pwm_capture_instance(
 wire pwm_input;
 wire tx_start;	
 wire[7:0] tx_data;
+wire rs232_tx;
           """
 
   def get_reg_defines(self):

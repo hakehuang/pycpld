@@ -1,0 +1,2 @@
+from uart8bit_partial import get_ip_name
+from uart8bit_partial import UART8BIT

@@ -70,7 +70,7 @@
     PINS: B58
 17:
     TYPE: A
-    FUNC: NONE
+    FUNC: A35_K70
     PINS: A35
 18:
     TYPE: A
@@ -228,7 +228,7 @@
     PINS: CPLD_IO55
 56:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO56
     PINS: B1
 57:
     TYPE: T
@@ -268,15 +268,15 @@
 #     PINS: X
 66:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO66
     PINS: B7
 67:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO67
     PINS: B8
 68:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO68
     PINS: B9
 69:
     TYPE: T
@@ -284,7 +284,7 @@
     PINS: B10
 70:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO70
     PINS: B11
 71:
     TYPE: T
@@ -336,7 +336,7 @@
     PINS: A5
 83:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO83
     PINS: A6
 84:
     TYPE: T
@@ -344,7 +344,7 @@
     PINS: A7
 85:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO85
     PINS: A8
 86:
     TYPE: T
@@ -352,7 +352,7 @@
     PINS: A9
 87:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO87
     PINS: A10
 # 88:
 #     TYPE: NONE
@@ -368,11 +368,11 @@
 #     PINS: X
 91:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO91
     PINS: A12
 92:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO92
     PINS: A13
 # 93:
 #     TYPE: NONE
@@ -392,7 +392,7 @@
     PINS: A16
 97:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO97
     PINS: A17
 98:
     TYPE: T
@@ -400,7 +400,7 @@
     PINS: CPLD_IO98
 99:
     TYPE: T
-    FUNC: NONE
+    FUNC: CPLD_IO99
     PINS: A19
 100:
     TYPE: T
