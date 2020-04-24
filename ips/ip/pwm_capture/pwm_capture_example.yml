@@ -5,6 +5,9 @@ PWM_CAPTURE:
     pwm_input:
         PIN: A34
         DIRECTION: in
+    rs232_tx:
+        PIN: A35
+        DIRECTION: OUT
         
 
 

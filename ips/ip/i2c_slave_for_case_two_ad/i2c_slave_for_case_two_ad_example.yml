@@ -1,0 +1,21 @@
+I2C_SLAVE_FOR_CASE_TWO_AD1:
+    IP: __I2C_SLAVE_FOR_CASE_TWO_AD
+    CMD: ICS
+    ALT: a 
+    scl_slv:
+        PIN: A34
+        DIRECTION: IN
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_SLAVE_FOR_CASE_TWO_AD2:
+    IP: __I2C_SLAVE_FOR_CASE_TWO_AD
+    CMD: INS
+    ALT: b 
+    scl_slv:
+        PIN: A34
+        DIRECTION: IN
+    sda:
+        PIN: A36
+        DIRECTION: INOUT

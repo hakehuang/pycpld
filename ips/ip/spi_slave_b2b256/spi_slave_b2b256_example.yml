@@ -1,0 +1,39 @@
+SPI_SLAVE_B2B256:
+    IP: __SPI_SLAVE_B2B256
+    CMD: SPT
+    ALT: b 
+    ss_sck_b2b:
+        PIN: A34
+        DIRECTION: IN
+    ss_mosi_b2b:
+        PIN: A36
+        DIRECTION: IN
+    ss_ssel_b2b:
+        PIN: A37
+        DIRECTION: IN   
+    ss_miso_b2b:
+        PIN: A38
+        DIRECTION: OUT
+    spi_slave_result_b2b:
+        PIN: A39
+        DIRECTION: OUT
+
+SPI_SLAVE_B2B2561:
+    IP: __SPI_SLAVE_B2B256
+    CMD: SPT
+    ALT: a
+    ss_sck_b2b:
+        PIN: A34
+        DIRECTION: IN
+    ss_mosi_b2b:
+        PIN: A36
+        DIRECTION: IN
+    ss_ssel_b2b:
+        PIN: A37
+        DIRECTION: IN   
+    ss_miso_b2b:
+        PIN: A38
+        DIRECTION: OUT
+    spi_slave_result_b2b:
+        PIN: A39
+        DIRECTION: OUT

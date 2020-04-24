@@ -28,8 +28,10 @@ IO_DIC = None
 ## create engine object
 engine = tenjin.Engine(path=['template'])
 
-VERILOG_FILE_TEXT = "set_global_assignment -name VERILOG_FILE %s\n"
+VERILOG_FILE_TEXT   = "set_global_assignment -name VERILOG_FILE %s\n"
 PIN_ASSIGNMENT_TEXT = "set_location_assignment PIN_%s -to %s\n"
+IO_BANK_TEXT        = "set_location_assignment IOBANK_%s -to %s\n"
+IO_STANDARD_TEXT        = "set_instance_assignment -name IO_STANDARD \"%s V\" -to %s\n"
 
 def save_template_to_file(outpath, output_file_name, template):
   try:
@@ -56,7 +58,9 @@ def save_template_to_file(outpath, output_file_name, template):
   #update the qsf file
   qsf_context = {'ENTRY':'',
   'VERILOG_FILES':'', 
-  'SET_PINS_TEXT':''}
+  'SET_PINS_TEXT':'',
+  'SET_BANK_TEXT':'',
+  'SET_IO_STANDARD_TEXT':''}
 
   qsf_context['ENTRY'] = output_file_name
 
@@ -72,6 +76,16 @@ def save_template_to_file(outpath, output_file_name, template):
   for bus_pair in cpld.BUS_LIST:
     SET_PINS_TEXT += PIN_ASSIGNMENT_TEXT%(bus_pair[1],  bus_pair[0])
   qsf_context['SET_PINS_TEXT'] = SET_PINS_TEXT
+
+  SET_IO_STAND_TEXT = ""
+  for io in analysis.IO_SETTINGS:
+    SET_IO_STAND_TEXT += IO_STANDARD_TEXT%(io[1],  io[0]) #BusA[42]
+  qsf_context['SET_IO_STANDARD_TEXT'] = SET_IO_STAND_TEXT
+
+  SET_BANK_TEXT = ""
+  for io in analysis.IO_SETTINGS:
+    SET_BANK_TEXT += IO_BANK_TEXT%(io[2],  io[0]) #BusA[42]
+  qsf_context['SET_BANK_TEXT'] = SET_BANK_TEXT  
 
   qsf = engine.render(analysis.CPLD_QSF_TEMPL_PATH, qsf_context)
   tcl = engine.render(analysis.CPLD_TCL_TEMPL_PATH, qsf_context)
@@ -116,6 +130,10 @@ def analysis_yml(boardyml, context):
   context['ASSIGN_TEXT'] = ASSIGN_TEXT
   IP_TEXT = cpld.ip_caller(io_dic)
   context['IP_TEXT'] = IP_TEXT
+  for io in analysis.IO_SETTINGS:
+    busname = cpld.get_busname_by_id(bus_scope, io[0])
+    io[0] = "%s[%s]"%(busname,io[0])
+
   return True
 
 
@@ -145,7 +163,3 @@ def generate(boardyml):
 
   save_template_to_file(VERILOG_OUTPUT_PATH, 'top', topv)
   print VERILOG_OUTPUT_PATH
-
-
-
-

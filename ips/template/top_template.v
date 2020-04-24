@@ -6,7 +6,7 @@
 input clk;	// 50MHz
 input rst_n;	//reset, neg edge.
 input rs232_rx;	// RS232 rec
-output rs232_tx;	//	RS232 transfer
+//output rs232_tx;	//	RS232 transfer
 /////////////////////////////////////////
 
 #{INOUT_TEXT}
@@ -75,6 +75,9 @@ wire tx_error;
 
 wire rx_complete;
 wire tx_complete;
+	
+wire[7:0] tx_data;
+wire rs232_tx;
 
 #{WIRE_TEXT}
 
@@ -83,7 +86,7 @@ wire tx_complete;
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //debug led
 reg led;
-																			
+reg cmd_red;																			
 // settings for log register
 reg [`Buff_size-1:0] Buff_temp;
 reg [`Buff_size-9:0] Rx_cmd;											
@@ -91,7 +94,7 @@ reg [2:0] Current, Next;
 reg Flag_temp;
 //build in module enable
 reg linkBIM;
-
+reg capture_rst;
 #{REG_TEXT}
 
 #{ASSIGN_TEXT}
@@ -170,6 +173,7 @@ begin
 	begin
 		Buff_temp <= `Buff_size'b0;
 		Rx_cmd <= `Buff_size'b0;
+		cmd_red <= 1'b0;
 	end
 	else
 	begin
@@ -180,6 +184,7 @@ begin
 			end
 			S1:
 			begin
+				cmd_red <= 1'b1;
 				Buff_temp <= {{Buff_temp[`Buff_size - 9 : 0]}, rx_data};
 			end 
 			WAIT:
@@ -190,6 +195,7 @@ begin
 			begin
 				Rx_cmd  <= Buff_temp[`Buff_size - 9 : 0];
 				Buff_temp <= `Buff_size'b0;
+				cmd_red <= 1'b0;
 			end
 			default: 
 			begin
@@ -208,6 +214,11 @@ begin
     led <= 1'b0; // for debug led
     linkBIM <= 1'b1;
   end
+  else if(cmd_red) begin
+			#{RST_REG_TEXT}
+            led <= 1'b0;
+            capture_rst <= 1'b0;
+  end
   else
   begin
     case(Rx_cmd)
@@ -220,6 +231,7 @@ begin
            #{RST_REG_TEXT}
             led <= 1'b0;
             linkBIM <= 1'b1;
+            capture_rst <= 1'b0;
         end
 
          default:
@@ -227,6 +239,7 @@ begin
           #{DFT_REG_TEXT}
           led <= 1'b0;
           linkBIM <= 1'b1;
+          capture_rst <= 1'b0;		  
       end
     endcase
   end

@@ -1,0 +1,28 @@
+1. define a yml file in below pattern
+
+
+[CPLD config name]:
+    IP: ["__" + IP name, eg. __ENC]
+    CMD: [cpld command name]
+    ALT: <a , b , c>
+    [IP io01 name]:
+        WIRE: <>
+        PIN: [pin name line A34 or CPLD_IO50 etc]
+        DIRECTION: [OUT, IN, INOUT]
+
+
+[]: means this field must filled
+<>: means this field is an optional one
+
+IP: the name for each IP
+CMD: cpld command string
+ALT: the IP alternative
+PIN: cpld pin that assigned to IP fucntion pin
+DIRECTION: the pin direction
+
+
+Note:
+
+DIECRTION: INOUT, is an exclusive configuration, if one CPLD config use this pin,
+in this cpld instance, no other cpld config can use this pin as mere input or output.  
+

@@ -1,0 +1,504 @@
+Analysis & Synthesis report for top
+Wed Jul 26 11:20:41 2017
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top|Current
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |top
+ 15. Parameter Settings for User Entity Instance: speed_select:speed_select
+ 16. Port Connectivity Checks: "my_uart_tx:my_uart_tx"
+ 17. Port Connectivity Checks: "my_uart_rx:my_uart_rx"
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                             ;
++-----------------------------+--------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jul 26 11:20:41 2017      ;
+; Quartus II 64-Bit Version   ; 14.0.0 Build 200 06/17/2014 SJ Web Edition ;
+; Revision Name               ; top                                        ;
+; Top-level Entity Name       ; top                                        ;
+; Family                      ; MAX II                                     ;
+; Total logic elements        ; 328                                        ;
+; Total pins                  ; 12                                         ;
+; Total virtual pins          ; 0                                          ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
++-----------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EPM570T100C5       ;                    ;
+; Top-level entity name                                                      ; top                ; top                ;
+; Family name                                                                ; MAX II             ; Cyclone IV GX      ;
+; Verilog Show LMF Mapping Messages                                          ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; top.v                            ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/top.v           ;         ;
+; spi_slave_b2b.v                  ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/spi_slave_b2b.v ;         ;
+; spi_ctrl.v                       ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/spi_ctrl.v      ;         ;
+; spi_master.v                     ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/spi_master.v    ;         ;
+; speed_select.v                   ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/speed_select.v  ;         ;
+; uart_rx.v                        ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/uart_rx.v       ;         ;
+; uart_tx.v                        ; yes             ; User Verilog HDL File  ; C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/uart_tx.v       ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 328   ;
+;     -- Combinational with no register       ; 121   ;
+;     -- Register only                        ; 54    ;
+;     -- Combinational with a register        ; 153   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 114   ;
+;     -- 3 input functions                    ; 38    ;
+;     -- 2 input functions                    ; 111   ;
+;     -- 1 input functions                    ; 10    ;
+;     -- 0 input functions                    ; 1     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 251   ;
+;     -- arithmetic mode                      ; 77    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 26    ;
+;     -- asynchronous clear/load mode         ; 205   ;
+;                                             ;       ;
+; Total registers                             ; 207   ;
+; Total logic cells in carry chains           ; 88    ;
+; I/O pins                                    ; 12    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 144   ;
+; Total fan-out                               ; 1411  ;
+; Average fan-out                             ; 4.15  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                            ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                            ; Library Name ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+
+; |top                                      ; 328 (79)    ; 207          ; 0          ; 12   ; 0            ; 121 (20)     ; 54 (25)           ; 153 (34)         ; 88 (0)          ; 0 (0)      ; |top                                                           ; work         ;
+;    |my_uart_rx:my_uart_rx|                ; 36 (36)     ; 22           ; 0          ; 0    ; 0            ; 14 (14)      ; 8 (8)             ; 14 (14)          ; 0 (0)           ; 0 (0)      ; |top|my_uart_rx:my_uart_rx                                     ; work         ;
+;    |speed_select:speed_select|            ; 22 (22)     ; 14           ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 14 (14)          ; 13 (13)         ; 0 (0)      ; |top|speed_select:speed_select                                 ; work         ;
+;    |spi_ctrl:spi_ctrl_instance|           ; 88 (23)     ; 59           ; 0          ; 0    ; 0            ; 29 (4)       ; 0 (0)             ; 59 (19)          ; 43 (15)         ; 0 (0)      ; |top|spi_ctrl:spi_ctrl_instance                                ; work         ;
+;       |spi_master:spi_master_instance|    ; 65 (65)     ; 40           ; 0          ; 0    ; 0            ; 25 (25)      ; 0 (0)             ; 40 (40)          ; 28 (28)         ; 0 (0)      ; |top|spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance ; work         ;
+;    |spi_slave_b2b:spi_slave_b2b_instance| ; 103 (103)   ; 53           ; 0          ; 0    ; 0            ; 50 (50)      ; 21 (21)           ; 32 (32)          ; 32 (32)         ; 0 (0)      ; |top|spi_slave_b2b:spi_slave_b2b_instance                      ; work         ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------+
+; State Machine - |top|Current                                           ;
++--------------+--------------+--------------+--------------+------------+
+; Name         ; Current.IDLE ; Current.SAVE ; Current.WAIT ; Current.S1 ;
++--------------+--------------+--------------+--------------+------------+
+; Current.IDLE ; 0            ; 0            ; 0            ; 0          ;
+; Current.S1   ; 1            ; 0            ; 0            ; 1          ;
+; Current.WAIT ; 1            ; 0            ; 1            ; 0          ;
+; Current.SAVE ; 1            ; 1            ; 0            ; 0          ;
++--------------+--------------+--------------+--------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                   ;
++-----------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                               ; Reason for Removal                     ;
++-----------------------------------------------------------------------------+----------------------------------------+
+; speed_select:speed_select|bps_para[9..12]                                   ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[7,8]                                     ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[6]                                       ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[4,5]                                     ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[2,3]                                     ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para[1]                                       ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para[0]                                       ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[8..12]                                 ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[6,7]                                   ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[5]                                     ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[3,4]                                   ; Stuck at VCC due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[1,2]                                   ; Stuck at GND due to stuck port data_in ;
+; speed_select:speed_select|bps_para_2[0]                                     ; Stuck at VCC due to stuck port data_in ;
+; mode_select                                                                 ; Stuck at GND due to stuck port data_in ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_mosir1        ; Lost fanout                            ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[0..7] ; Lost fanout                            ;
+; spi_rx_en                                                                   ; Merged with spi_rst                    ;
+; spi_tx_en                                                                   ; Merged with spi_rst                    ;
+; spi_slave_b2b:spi_slave_b2b_instance|first_byte[0,2..7]                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 45                                      ;                                        ;
++-----------------------------------------------------------------------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                           ;
++---------------+---------------------------+---------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                    ;
++---------------+---------------------------+---------------------------------------------------------------------------+
+; mode_select   ; Stuck at GND              ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_mosir1,     ;
+;               ; due to stuck port data_in ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[7], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[6], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[5], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[4], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[3], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[2], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[1], ;
+;               ;                           ; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr1[0]  ;
++---------------+---------------------------+---------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 207   ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 205   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 110   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                      ;
++-------------------------------------------------------------------------+---------+
+; Inverted Register                                                       ; Fan out ;
++-------------------------------------------------------------------------+---------+
+; spi_ctrl:spi_ctrl_instance|cs_n                                         ; 1       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_mosir     ; 1       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[0] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[1] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[2] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[3] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[6] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[7] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[5] ; 2       ;
+; spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[4] ; 2       ;
+; my_uart_rx:my_uart_rx|rx_complete_reg                                   ; 2       ;
+; spi_slave_b2b:spi_slave_b2b_instance|cnt[0]                             ; 3       ;
+; Total number of inverted registers = 12                                 ;         ;
++-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top|spi_slave_b2b:spi_slave_b2b_instance|cnt[7]                       ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top|spi_slave_b2b:spi_slave_b2b_instance|bitcnt[0]                    ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top|spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|cnt8[4] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top|spi_slave_b2b:spi_slave_b2b_instance|received_memory[3]           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top ;
++----------------+----------+-----------------------------------------+
+; Parameter Name ; Value    ; Type                                    ;
++----------------+----------+-----------------------------------------+
+; IDLE           ; 000      ; Unsigned Binary                         ;
+; S1             ; 001      ; Unsigned Binary                         ;
+; WAIT           ; 010      ; Unsigned Binary                         ;
+; SAVE           ; 100      ; Unsigned Binary                         ;
+; A              ; 01000001 ; Unsigned Binary                         ;
+; B              ; 01000010 ; Unsigned Binary                         ;
+; C              ; 01000011 ; Unsigned Binary                         ;
+; D              ; 01000100 ; Unsigned Binary                         ;
+; E              ; 01000101 ; Unsigned Binary                         ;
+; F              ; 01000110 ; Unsigned Binary                         ;
+; G              ; 01000111 ; Unsigned Binary                         ;
+; H              ; 01001000 ; Unsigned Binary                         ;
+; I              ; 01001001 ; Unsigned Binary                         ;
+; J              ; 01001010 ; Unsigned Binary                         ;
+; K              ; 01001011 ; Unsigned Binary                         ;
+; L              ; 01001100 ; Unsigned Binary                         ;
+; M              ; 01001101 ; Unsigned Binary                         ;
+; N              ; 01001110 ; Unsigned Binary                         ;
+; O              ; 01001111 ; Unsigned Binary                         ;
+; P              ; 01010000 ; Unsigned Binary                         ;
+; Q              ; 01010001 ; Unsigned Binary                         ;
+; R              ; 01010010 ; Unsigned Binary                         ;
+; S              ; 01010011 ; Unsigned Binary                         ;
+; T              ; 01010100 ; Unsigned Binary                         ;
+; U              ; 01010101 ; Unsigned Binary                         ;
+; V              ; 01010110 ; Unsigned Binary                         ;
+; W              ; 01010111 ; Unsigned Binary                         ;
+; X              ; 01011000 ; Unsigned Binary                         ;
+; Y              ; 01011001 ; Unsigned Binary                         ;
+; Z              ; 01011010 ; Unsigned Binary                         ;
+; Z0             ; 00110000 ; Unsigned Binary                         ;
+; I1             ; 00110001 ; Unsigned Binary                         ;
+; II             ; 00110010 ; Unsigned Binary                         ;
+; III            ; 00110011 ; Unsigned Binary                         ;
+; IV             ; 00110100 ; Unsigned Binary                         ;
+; V5             ; 00110101 ; Unsigned Binary                         ;
+; VI             ; 00110110 ; Unsigned Binary                         ;
+; VII            ; 00110111 ; Unsigned Binary                         ;
+; VIII           ; 00111000 ; Unsigned Binary                         ;
+; VIIII          ; 00111001 ; Unsigned Binary                         ;
++----------------+----------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: speed_select:speed_select ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; bps9600        ; 5208  ; Signed Integer                                ;
+; bps19200       ; 2603  ; Signed Integer                                ;
+; bps38400       ; 1301  ; Signed Integer                                ;
+; bps57600       ; 867   ; Signed Integer                                ;
+; bps115200      ; 434   ; Signed Integer                                ;
+; bps256000      ; 195   ; Signed Integer                                ;
+; bps9600_2      ; 2604  ; Signed Integer                                ;
+; bps19200_2     ; 1301  ; Signed Integer                                ;
+; bps38400_2     ; 650   ; Signed Integer                                ;
+; bps57600_2     ; 433   ; Signed Integer                                ;
+; bps115200_2    ; 217   ; Signed Integer                                ;
+; bps256000_2    ; 97    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "my_uart_tx:my_uart_tx"                                                                                                                                 ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                         ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tx_data     ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "tx_data[7..1]" will be connected to GND. ;
+; tx_complete ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
+; uart_tx     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
+; error       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "my_uart_rx:my_uart_rx"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; rx_complete ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rx_error    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Wed Jul 26 11:20:39 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top -c top
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file top.v
+    Info (12023): Found entity 1: top
+Info (12021): Found 1 design units, including 1 entities, in source file spi_slave_b2b.v
+    Info (12023): Found entity 1: spi_slave_b2b
+Info (12021): Found 1 design units, including 1 entities, in source file spi_ctrl.v
+    Info (12023): Found entity 1: spi_ctrl
+Info (12021): Found 1 design units, including 1 entities, in source file spi_master.v
+    Info (12023): Found entity 1: spi_master
+Info (12021): Found 1 design units, including 1 entities, in source file speed_select.v
+    Info (12023): Found entity 1: speed_select
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: my_uart_rx
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: my_uart_tx
+Warning (10236): Verilog HDL Implicit Net warning at top.v(152): created implicit net for "capture_rst"
+Warning (10236): Verilog HDL Implicit Net warning at top.v(154): created implicit net for "tx_start"
+Warning (10236): Verilog HDL Implicit Net warning at top.v(155): created implicit net for "tx_data"
+Warning (10236): Verilog HDL Implicit Net warning at top.v(158): created implicit net for "rs232_tx"
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top.v(108): object "linkBIM" assigned a value but never read
+Info (10264): Verilog HDL Case Statement information at top.v(211): all case item expressions in this case statement are onehot
+Warning (10230): Verilog HDL assignment warning at top.v(258): truncated value with size 32 to match size of target (24)
+Info (12128): Elaborating entity "speed_select" for hierarchy "speed_select:speed_select"
+Warning (10230): Verilog HDL assignment warning at speed_select.v(40): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(41): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(44): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(45): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(48): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(49): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(52): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(53): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(56): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(57): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(60): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at speed_select.v(61): truncated value with size 32 to match size of target (13)
+Warning (10240): Verilog HDL Always Construct warning at speed_select.v(31): inferring latch(es) for variable "uart_ctrl", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "uart_ctrl.101" at speed_select.v(31)
+Info (10041): Inferred latch for "uart_ctrl.100" at speed_select.v(31)
+Info (10041): Inferred latch for "uart_ctrl.011" at speed_select.v(31)
+Info (10041): Inferred latch for "uart_ctrl.010" at speed_select.v(31)
+Info (10041): Inferred latch for "uart_ctrl.001" at speed_select.v(31)
+Info (10041): Inferred latch for "uart_ctrl.000" at speed_select.v(31)
+Info (12128): Elaborating entity "my_uart_rx" for hierarchy "my_uart_rx:my_uart_rx"
+Info (12128): Elaborating entity "my_uart_tx" for hierarchy "my_uart_tx:my_uart_tx"
+Warning (10034): Output port "error" at uart_tx.v(10) has no driver
+Info (12128): Elaborating entity "spi_slave_b2b" for hierarchy "spi_slave_b2b:spi_slave_b2b_instance"
+Warning (10036): Verilog HDL or VHDL warning at spi_slave_b2b.v(38): object "ssel_startmessage" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at spi_slave_b2b.v(39): object "ssel_endmessage" assigned a value but never read
+Info (12128): Elaborating entity "spi_ctrl" for hierarchy "spi_ctrl:spi_ctrl_instance"
+Info (12128): Elaborating entity "spi_master" for hierarchy "spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "BusB[75]" has no driver
+    Warning (13040): Bidir "BusB[71]" has no driver
+    Warning (13040): Bidir "BusB[72]" has no driver
+    Warning (13040): Bidir "BusB[73]" has no driver
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "sm_miso" to the node "spi_ctrl:spi_ctrl_instance|spi_master:spi_master_instance|spi_rx_dbr[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ss_sck_b2b" to the node "spi_slave_b2b:spi_slave_b2b_instance|sckr[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ss_ssel_b2b" to the node "spi_slave_b2b:spi_slave_b2b_instance|sselr[0]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "ss_mosi_b2b" to the node "spi_slave_b2b:spi_slave_b2b_instance|mosir[0]" into an OR gate
+Info (18000): Registers with preset signals will power-up high
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 340 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 328 logic cells
+Info (144001): Generated suppressed messages file C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/top.map.smsg
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 497 megabytes
+    Info: Processing ended: Wed Jul 26 11:20:41 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Code/mcu_cpld_prd/Auto_Generator/pycpld/quartus-II/top_frdmk22f_2/top.map.smsg.
+
+

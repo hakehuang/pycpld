@@ -1,0 +1,2 @@
+from spi_slave_cpha0_partial import get_ip_name
+from spi_slave_cpha0_partial import SPI_SLAVE_CPHA0

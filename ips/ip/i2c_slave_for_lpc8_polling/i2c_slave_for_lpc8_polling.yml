@@ -1,0 +1,21 @@
+I2C_SLAVE_FOR_LPC8_POLLING:
+    IP: __I2C_SLAVE_FOR_LPC8_POLLING
+    CMD: ICS
+    ALT: a 
+    scl_slv_polling:
+        PIN: A34
+        DIRECTION: IN
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_SLAVE_FOR_LPC8_POLLING1:
+    IP: __I2C_SLAVE_FOR_LPC8_POLLING
+    CMD: IBS
+    ALT: b 
+    scl_slv_polling:
+        PIN: A34
+        DIRECTION: IN
+    sda:
+        PIN: A36
+        DIRECTION: INOUT

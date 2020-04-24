@@ -1,0 +1,40 @@
+SPI_MASTER_KL:
+    IP: __SPI_MASTER_KL
+    CMD: SIO
+    ALT: a 
+    sm_sck_kl:
+        PIN: A34
+        DIRECTION: OUT
+    sm_mosi_kl:
+        PIN: A36
+        DIRECTION: OUT
+    sm_cs_n_kl:
+        PIN: A37
+        DIRECTION: OUT   
+    sm_miso_kl:
+        PIN: A38
+        DIRECTION: IN
+    spi_receive_status_kl:
+        PIN: A39
+        DIRECTION: OUT
+        
+SPI_MASTER1_KL:
+    IP: __SPI_MASTER_KL
+    CMD: SIT
+    ALT: b
+    sm_sck_kl:
+        PIN: A34
+        DIRECTION: OUT
+    sm_mosi_kl:
+        PIN: A36
+        DIRECTION: OUT
+    sm_cs_n_kl:
+        PIN: A37
+        DIRECTION: OUT   
+    sm_miso_kl:
+        PIN: A38
+        DIRECTION: IN
+    spi_receive_status_kl:
+        PIN: A39
+        DIRECTION: OUT        
+

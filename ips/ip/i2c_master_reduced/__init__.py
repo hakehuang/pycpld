@@ -1,0 +1,2 @@
+from i2c_master_reduced_partial import get_ip_name
+from i2c_master_reduced_partial import I2C_MASTER_reduced

@@ -1,0 +1,55 @@
+I2C_MASTER_TWO_AD1:
+    IP: __I2C_MASTER_TWO_AD
+    CMD: ICW
+    ALT: a 
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    receive_status:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_MASTER_TWO_AD2:
+    IP: __I2C_MASTER_TWO_AD
+    CMD: ICR
+    ALT: b 
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    receive_status:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_MASTER_TWO_AD3:
+    IP: __I2C_MASTER_TWO_AD
+    CMD: INR
+    ALT: c
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    receive_status:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_MASTER_TWO_AD4:
+    IP: __I2C_MASTER_TWO_AD
+    CMD: INW
+    ALT: d
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    receive_status:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT

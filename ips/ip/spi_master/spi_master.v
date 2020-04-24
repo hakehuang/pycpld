@@ -10,7 +10,7 @@ clk,rst_n,
 
 spi_miso,spi_mosi,spi_clk,
 
-spi_tx_en,spi_rx_en,spi_over,mode_select,receive_status
+spi_tx_en,spi_rx_en,spi_over,mode_select_CPHA,mode_select_CPOL,receive_status
 
 );
 
@@ -32,7 +32,9 @@ output receive_status;
 
 input spi_rx_en;
 
-input mode_select;
+input mode_select_CPHA;
+
+input mode_select_CPOL;
 
 reg[7:0] data_count;
 
@@ -62,9 +64,9 @@ wire[4:0] start_reg;
 /***********************************************************************
 *detect spi mode
 ***********************************************************************/
-assign mode_reg = mode_select ? 5'd18 : 5'd17;
+assign mode_reg = mode_select_CPHA ? 5'd18 : 5'd17;
 
-assign start_reg = mode_select ? 5'd1 : 5'd0;
+assign start_reg = mode_select_CPHA ? 5'd1 : 5'd0;
 
 /***********************************************************************
 *control the spi timimg
@@ -80,19 +82,19 @@ always @(posedge clk or negedge rst_n) begin
 		if(cnt8 < mode_reg)
 			cnt8 <= cnt8+1'b1;
 		else begin
-			if(spi_tx_en && spi_rx_en) begin
+			if(spi_tx_en && spi_rx_en && delay_flag == 1'b1) begin
 				cnt8 <= 5'd0;
 				data_count <= data_count + 1'b1;
 				spi_tx_db <= spi_tx_db + 1'b1;
 				recv_detect <= (spi_rx_db == data_count) ? (recv_detect+1'b1) : recv_detect;
 				end
 			else begin
-				if(spi_tx_en) begin
+				if(spi_tx_en && delay_flag == 1'b1) begin
 					cnt8 <= 5'd0;
 					data_count <= data_count + 1'b1;
 					spi_tx_db <= spi_tx_db + 1'b1;
 				end
-				else begin
+				else if(delay_flag == 1'b1)begin
 					cnt8 <= 5'd0;
 					data_count <= data_count + 1'b1;
 					recv_detect <= (spi_rx_db == data_count) ? (recv_detect+1'b1) : recv_detect;
@@ -111,7 +113,7 @@ end
 ***********************************************************************/
 always @(posedge clk or negedge rst_n) begin
 	if(!rst_n)
-		spi_clkr <= mode_select ? 1'b1 : 1'b0;
+		spi_clkr <= mode_select_CPOL ? 1'b1 : 1'b0;
 	else if(cnt8 > start_reg && cnt8 < mode_reg)
 				spi_clkr <= ~spi_clkr;
 			else
@@ -179,7 +181,7 @@ always @(posedge clk or negedge rst_n) begin
 		spi_mosir1 <= 1'b1;
 end
 
-assign spi_mosi = mode_select ? spi_mosir1 : spi_mosir;
+assign spi_mosi = mode_select_CPHA ? spi_mosir1 : spi_mosir;
 
 /***********************************************************************
 *spi master input data
@@ -236,7 +238,7 @@ always @(posedge clk or negedge rst_n) begin
 			end
 end
 
-assign spi_rx_db = mode_select ? spi_rx_dbr1 : spi_rx_dbr;
+assign spi_rx_db = mode_select_CPHA ? spi_rx_dbr1 : spi_rx_dbr;
 
 assign spi_over = (data_count == 8'd64) ? 1'b1 :1'b0;
 
@@ -246,5 +248,25 @@ always @(posedge clk or negedge rst_n) begin
 	else
 		receive_status <= (recv_detect == 8'd64) ? 1'b1 : 1'b0;
 end
-
+/***********************************************************************
+*spi master delay
+***********************************************************************/
+reg delay_flag;
+reg [31:0] delay_cnt;
+always@(posedge clk or negedge rst_n)begin
+	if(!rst_n)begin 
+	 delay_flag <= 1'b1;
+	 delay_cnt  <= 'h0;
+	end
+	else if(delay_cnt == 'hF && cnt8 == mode_reg)begin
+		delay_cnt <= 'h0;
+		delay_flag <= 1'b1;
+	end
+	else begin
+		delay_cnt <= (cnt8 == mode_reg) ? (delay_cnt + 1'b1) : 'h0;
+		delay_flag <= 1'b0;
+	end
+		
+	 
+end
 endmodule

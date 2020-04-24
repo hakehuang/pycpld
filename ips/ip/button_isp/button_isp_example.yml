@@ -1,0 +1,9 @@
+BUTTON_ISP:
+    IP: __BUTTON_ISP
+    CMD: ISP
+    button_out_isp:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    button_out_reset:
+        PIN: CPLD_IO3
+        DIRECTION: OUT

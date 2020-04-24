@@ -5,17 +5,38 @@ import pkgutil
 import ip 
 from ip.uart.uart_partial import UART
 from ip.enc.enc_partial import ENC
+from ip.qdec.qdec_partial import QDEC
 from ip.uart7bit.uart7bit_partial import UART7BIT
 from ip.pwm_out.pwm_out_partial import PWM_OUT
 from ip.pwm_capture.pwm_capture_partial import PWM_CAPTURE
 from ip.i2c_master.i2c_master_partial import I2C_MASTER
+from ip.i2c_master_reduced.i2c_master_reduced_partial import I2C_MASTER_reduced
 from ip.i2c_slave.i2c_slave_partial import I2C_SLAVE
 from ip.i2c_slave_for_case.i2c_slave_for_case_partial import I2C_SLAVE_FOR_CASE
+from ip.i2c_slave_for_case_reduced.i2c_slave_for_case_reduced_partial import I2C_SLAVE_FOR_CASE_reduced
 from ip.spi_master.spi_master_partial import SPI_MASTER
+from ip.spi_master_reduced.spi_master_reduced_partial import SPI_MASTER_reduced
 from ip.uart8bit.uart8bit_partial import UART8BIT
 from ip.sw_pulse.sw_pulse_partial import SW_PULSE
-#from ip.quadpwm.quadpwm_partial import QUADPWM
 from ip.spi_slave.spi_slave_partial import SPI_SLAVE
+from ip.spi_slave_0_base.spi_slave_0_base_partial import SPI_SLAVE_0_BASE
+from ip.spi_slave_b2b.spi_slave_b2b_partial import SPI_SLAVE_B2B
+from ip.spi_slave_b2b_reduced.spi_slave_b2b_reduced_partial import SPI_SLAVE_B2B_reduced
+from ip.spi_master_kl.spi_master_kl_partial import SPI_MASTER_KL
+from ip.spi_slave_cpha0.spi_slave_cpha0_partial import SPI_SLAVE_CPHA0
+from ip.button_rst.button_rst_partial import BUTTON_RST
+from ip.i2c_master_with_log.i2c_master_with_log_partial import I2C_MASTER_WITH_LOG
+from ip.spi_slave_b2b256.spi_slave_b2b256_partial import SPI_SLAVE_B2B256
+from ip.i2c_master_two_ad.i2c_master_two_ad_partial import I2C_MASTER_TWO_AD
+from ip.i2c_slave_for_case_two_ad.i2c_slave_for_case_two_ad_partial import I2C_SLAVE_FOR_CASE_TWO_AD
+from ip.ir_recieve.ir_recieve_partial import IR_RECIEVE
+from ip.i2c_master_subad.i2c_master_subad_partial import I2C_MASTER_SUBAD
+from ip.i2c_slave_subad.i2c_slave_subad_partial import I2C_SLAVE_SUBAD
+from ip.i2c_slave_for_lpc8_polling.i2c_slave_for_lpc8_polling_partial import I2C_SLAVE_FOR_LPC8_POLLING
+from ip.led_capture.led_capture_partial import LED_CAPTURE
+from ip.button_hold.button_hold_partial import BUTTON_HOLD
+from ip.spi_slave_freertos.spi_slave_freertos_partial import SPI_SLAVE_FREERTOS
+from ip.button_isp.button_isp_partial import BUTTON_ISP
 
 __PATH__        = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
 
@@ -59,6 +80,8 @@ SPECIAL_IO = []
 
 CPLD_QSF_TEMPL_PATH = None
 CPLD_TCL_TEMPL_PATH = None
+
+IO_SETTINGS = []
 
 
 
@@ -113,6 +136,7 @@ def remap_pin(pin):
 
 # the valid direction are A2T T2A T2T
 def parser_pin_in_out(connection, switch):
+  global IO_SETTINGS
   d = connection["DIRECTION"]
   in_type  = d[0]
   out_type = d[2]
@@ -149,6 +173,14 @@ def parser_pin_in_out(connection, switch):
   else: CPinOUT = p_out
 
   comments = "// %s <- %s"%(p_out, p_in)
+
+  #urgly add the process for IO settings
+  if connection.has_key('IO'):
+    vol = connection['IO']['VOLTAGE']
+    bank = connection['IO']['BANK']
+    if not [CPinIN, vol, bank] in IO_SETTINGS:
+      IO_SETTINGS.append([CPinIN, vol, bank])
+      IO_SETTINGS.append([CPinOUT, vol, bank])
 
   return CPinIN, CPinOUT, comments
 
@@ -214,6 +246,15 @@ def parser_pin_ip(connection, conname):
 
   ip_wire_name = conname
 
+  #urgly add the process for IO settings
+  if connection.has_key('IO'):
+    vol = connection['IO']['VOLTAGE']
+    bank = connection['IO']['BANK']
+    if PIN_IN and not [PIN_IN, vol, bank] in IO_SETTINGS :
+      IO_SETTINGS.append([PIN_IN, vol, bank])
+    if PIN_OUT and not [PIN_OUT, vol, bank] in IO_SETTINGS :
+      IO_SETTINGS.append([PIN_OUT, vol, bank])
+
   return PIN_IN, PIN_OUT, comments, ip_wire_name
 
 #look up io in cpld_io dic for internal IPs
@@ -268,7 +309,7 @@ def look_up_ip(module, switch):
 
   look_result = []
 
-  if mname == "BIM":
+  if mname == "BIM": #build in module
     look_result.append(('','',"//build in %s"%module['IP'], 'BIM', ip_name))
     return look_result
 
@@ -281,7 +322,7 @@ def look_up_ip(module, switch):
     else:
       return None
 
-  return look_result  
+  return look_result
 
  
 
@@ -444,7 +485,6 @@ def analysis_context(boardyml):
 
 
   bus_scope, Used_io = cpld_io_analyze(io_dic)
-  
   if Used_io is None:
     print ("Error: Bus Definition!")
     return None, None

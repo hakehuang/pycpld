@@ -1,0 +1,99 @@
+BUTTON_HOLD1:
+    IP: __BUTTON_HOLD
+    CMD: BSA
+    out_status[0]:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+
+BUTTON_HOLD2:
+    IP: __BUTTON_HOLD
+    CMD: BLA
+    out_status[0]:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD3:
+    IP: __BUTTON_HOLD
+    CMD: BVA
+    out_status[0]:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD4:
+    IP: __BUTTON_HOLD
+    CMD: BDA
+    out_status[0]:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD5:
+    IP: __BUTTON_HOLD
+    CMD: BHA
+    out_status[0]:
+        PIN: CPLD_IO2
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD6:
+    IP: __BUTTON_HOLD
+    CMD: BSB
+    out_status[1]:
+        PIN: CPLD_IO4
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+
+BUTTON_HOLD7:
+    IP: __BUTTON_HOLD
+    CMD: BLB
+    out_status[1]:
+        PIN: CPLD_IO4
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD8:
+    IP: __BUTTON_HOLD
+    CMD: BVB
+    out_status[1]:
+        PIN: CPLD_IO4
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD9:
+    IP: __BUTTON_HOLD
+    CMD: BDB
+    out_status[1]:
+        PIN: CPLD_IO4
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+BUTTON_HOLD10:
+    IP: __BUTTON_HOLD
+    CMD: BHB
+    out_status[1]:
+        PIN: CPLD_IO4
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT

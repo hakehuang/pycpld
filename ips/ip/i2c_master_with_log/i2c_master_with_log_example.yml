@@ -1,0 +1,27 @@
+I2C_MASTER_WITH_LOG1:
+    IP: __I2C_MASTER_WITH_LOG
+    CMD: ICW
+    ALT: a 
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+
+I2C_MASTER_WITH_LOG2:
+    IP: __I2C_MASTER_WITH_LOG
+    CMD: ICR
+    ALT: b 
+    scl:
+        PIN: A34
+        DIRECTION: OUT
+    rs232_tx:
+        PIN: A35
+        DIRECTION: OUT
+    sda:
+        PIN: A36
+        DIRECTION: INOUT

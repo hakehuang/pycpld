@@ -3,13 +3,14 @@ USH:
     IP: __UART7BIT
     CMD: USH
     ALT: a
+#115200
     rs232_tx7to7:
         PIN: A34
         DIRECTION: out
     rs232_rx7to7:
         PIN: A33
         DIRECTION: in
-    compara_error:
+    compara_error_uart7bit:
         PIN: CPLD_IO50
         DIRECTION: out
 
@@ -17,13 +18,14 @@ USH:
 USL:
     IP: __UART7BIT
     CMD: USL
-    ALT: a
+    ALT: b 
+#9600
     rs232_tx7to7:
         PIN: A34
         DIRECTION: out
     rs232_rx7to7:
         PIN: A33
         DIRECTION: in
-    compara_error:
+    compara_error_uart7bit:
         PIN: CPLD_IO50
         DIRECTION: out

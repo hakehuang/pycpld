@@ -1,9 +1,10 @@
 module spi_ctrl(
-clk,rst_n,sck,mosi,miso,cs_n,spi_tx_en,spi_rx_en,mode_select,receive_status
+clk,rst_n,sck,mosi,miso,cs_n,spi_tx_en,spi_rx_en,mode_select_CPHA,mode_select_CPOL,receive_status
 );
 
 input clk,rst_n,miso;
-input mode_select;
+input mode_select_CPHA;
+input mode_select_CPOL;
 
 output sck,mosi,cs_n;
 output receive_status;
@@ -21,13 +22,17 @@ reg cs_n;
 reg[7:0] clk_count;
 reg[7:0] rst_count;
 reg rst_flag;
+/*
+	spi baud rate is calculated by clk / 100 / 3
+	as we count 3 sck change to be a full period 
+*/
 always @(posedge clk or negedge rst_n) begin
 	if(!rst_n) begin
 		clk_count <= 8'h0;
 		spi_clk <= 1'b0;
 		end
 	else begin 
-		if(clk_count < 8'd10)
+		if(clk_count < 8'd100)
 			clk_count <= clk_count + 1'b1;
 		else begin
 			clk_count <= 8'h0;
@@ -69,7 +74,8 @@ spi_master spi_master_instance(
 					.spi_tx_en(spi_tx_en),
 					.spi_over(spi_over),
 					.spi_rx_en(spi_rx_en),
-					.mode_select(mode_select),
+					.mode_select_CPHA(mode_select_CPHA),
+					.mode_select_CPOL(mode_select_CPOL),
 					.receive_status(receive_status)
 );
 

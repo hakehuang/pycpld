@@ -1,0 +1,2 @@
+from spi_master_reduced_partial import get_ip_name
+from spi_master_reduced_partial import SPI_MASTER_reduced

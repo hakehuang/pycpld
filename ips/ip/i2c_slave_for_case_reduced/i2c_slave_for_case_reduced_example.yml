@@ -1,0 +1,10 @@
+I2C_SLAVE_FOR_CASE_reduced:
+    IP: __I2C_SLAVE_FOR_CASE_reduced
+    CMD: ICS
+    scl_slv_rd:
+        PIN: A34
+        DIRECTION: IN
+    sda:
+        PIN: A36
+        DIRECTION: INOUT
+

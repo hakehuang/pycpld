@@ -1,0 +1,15 @@
+BUTTON_RST1:
+    IP: __BUTTON_RST
+    CMD: BUP
+    ALT: a 
+    button_out_status:
+        PIN: A34
+        DIRECTION: OUT
+
+BUTTON_RST2:
+    IP: __BUTTON_RST
+    CMD: BDP
+    ALT: b
+    button_out_status:
+        PIN: A34
+        DIRECTION: OUT

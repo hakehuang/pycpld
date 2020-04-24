@@ -12,6 +12,9 @@ SPECIAL_IO = []
 #BUS LIST
 BUS_LIST = []
 
+#IO_LIST
+IO_LIST = []
+
 ##################################################################
 #CODE SYNTAX DEFINITON SECTION
 ##################################################################
@@ -75,6 +78,7 @@ def get_ip_inst(ipname, cmd_key):
         if hasattr(inst, 'ALT_CMD'):
           if inst.ALT_CMD == cmd_key:
             cinst = inst
+            print "inst alt is %s"%inst.ALT_CMD
             break
         else:
           cinst = inst
@@ -101,8 +105,6 @@ def ip_caller(io_dic):
       if cinst.get_module_caller() not in IP_TEXT:
         IP_TEXT += cinst.get_module_caller()
   return IP_TEXT
-
-
 
 def get_busname_by_id(bus_scope_list, bid):
   bus_count = len(bus_scope_list)
@@ -162,6 +164,7 @@ def assign(io_dic,bus_scope_list):
           if (bus_assign not in isolated_inout_pins):
             ASSIGN_TEXT += TO_ALIAS_TEXT%(settings[3], bus_assign)
             isolated_inout_pins.append(bus_assign)
+            BUS_LIST.append([bus_assign,settings[1]])
       elif len(settings) == 3 and settings.__class__.__name__ == "tuple":
         #normal pin settings
         busname_0 = get_busname_by_id(bus_scope_list, settings[0])
@@ -205,16 +208,16 @@ def assign(io_dic,bus_scope_list):
           #output pin
           busname_1 = get_busname_by_id(bus_scope_list, settings[1])
           bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
-          if (bus_assign_1 in isolated_inout_pins):
-            print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
-            sys.exit()
+          #if (bus_assign_1 in isolated_inout_pins):
+          #  print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+          #  sys.exit()
         elif settings[1] is None:
           #inut pin
           busname_0 = get_busname_by_id(bus_scope_list, settings[0])
           bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
-          if (bus_assign_0 in isolated_inout_pins):
-            print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
-            sys.exit()          
+          #if (bus_assign_0 in isolated_inout_pins):
+          #  print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+          #  sys.exit()          
         else:
           pass
       elif len(settings) == 3 and settings.__class__.__name__ == "tuple":
@@ -223,9 +226,9 @@ def assign(io_dic,bus_scope_list):
         busname_1 = get_busname_by_id(bus_scope_list, settings[1])
         bus_assign_0 = "%s[%s]"%(busname_0, settings[0])
         bus_assign_1 = "%s[%s]"%(busname_1, settings[1])
-        if (bus_assign_0 in isolated_inout_pins or bus_assign_1 in isolated_inout_pins):
-          print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
-          sys.exit()  
+        #if (bus_assign_0 in isolated_inout_pins or bus_assign_1 in isolated_inout_pins):
+        #  print "Error %s is used in inout and can not be used otherwise!"%(bus_assign_1)
+        #  sys.exit()  
       else: #not a pin setting
         pass
 
@@ -343,5 +346,8 @@ def Code_verilog_reg(io_dic):
     RST_REG_TEXT += "\t\t\t" + TO_REG_TEXT%(LINKCMD, 0)
     DFT_REG_TEXT += "\t\t\t" + TO_REG_TEXT%(LINKCMD, 0)
   return INIT_REG_TEXT, CMD_CASE_TEXT, RST_REG_TEXT, DFT_REG_TEXT
+
+
+
 
 

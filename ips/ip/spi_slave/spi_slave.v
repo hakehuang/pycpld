@@ -141,7 +141,7 @@ always @(posedge clk or negedge rst_n) begin
 		byte_data_sent <= 8'h0;
 	 else begin
       if(ssel_active && sck_fallingedge) begin
-          if(bitcnt==3'b000)
+          if(bitcnt==3'b001)
                byte_data_sent <= cnt;  // after that, we send 0s
            else
                byte_data_sent <= {byte_data_sent[6:0], 1'b0};

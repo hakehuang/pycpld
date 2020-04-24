@@ -1,0 +1,2 @@
+from spi_slave_b2b256_partial import get_ip_name
+from spi_slave_b2b256_partial import SPI_SLAVE_B2B256

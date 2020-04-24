@@ -78,7 +78,10 @@ if {$make_assignments} {
 	
 	#{SET_PINS_TEXT}
 
-	
+	#{SET_BANK_TEXT}
+
+	#{SET_IO_STANDARD_TEXT}
+
 	######################
 	
 	# Commit assignments

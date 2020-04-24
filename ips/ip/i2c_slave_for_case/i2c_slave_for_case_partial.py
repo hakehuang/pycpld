@@ -30,37 +30,37 @@ class I2C_SLAVE_FOR_CASE(base_ip.base_ip):
   def get_module_caller(self):
     return """
 i2c_slave      i2c_slave_instance(
-							.reset_n(i2c_rst),
+							.reset_n(i2c_rst_slv),
 							.sda(`sda),
-							.scl(scl),
+							.scl(scl_slv),
 							.clock(clk)
 							);
     """
 
   def get_wire_defines(self):
     return """
-wire scl;
+wire scl_slv;
     """
 
   def get_reg_defines(self):
     #additional reg definition
     return """
-reg i2c_rst;
+reg i2c_rst_slv;
     """
   def module_rest_codes():
     return """
-     i2c_rst <= 1'b0;
+     i2c_rst_slv <= 1'b0;
 	 linkICS <= 1'b0;
     """
   def get_cmd_case_text(self):
     return """
-        i2c_rst <= 1'b1;
+        i2c_rst_slv <= 1'b1;
     """
   def get_rst_case_text(self):
     return """
-        i2c_rst <= 1'b0;
+        i2c_rst_slv <= 1'b0;
     """
   def get_dft_case_text(self):
     return """
-        i2c_rst <= 1'b0;
+        i2c_rst_slv <= 1'b0;
     """

@@ -1,0 +1,40 @@
+SPI_MASTER_reduced:
+    IP: __SPI_MASTER_reduced
+    CMD: SIO
+    ALT: a 
+    sm_rd_sck:
+        PIN: A34
+        DIRECTION: OUT
+    sm_rd_mosi:
+        PIN: A36
+        DIRECTION: OUT
+    sm_rd_cs_n:
+        PIN: A37
+        DIRECTION: OUT   
+    sm_rd_miso:
+        PIN: A38
+        DIRECTION: IN
+    spi_rd_receive_status:
+        PIN: A39
+        DIRECTION: OUT
+        
+SPI_MASTER1_reduced:
+    IP: __SPI_MASTER_reduced
+    CMD: SIT
+    ALT: b
+    sm_rd_sck_256:
+        PIN: A34
+        DIRECTION: OUT
+    sm_rd_mosi_256:
+        PIN: A36
+        DIRECTION: OUT
+    sm_rd_cs_n_256:
+        PIN: A37
+        DIRECTION: OUT   
+    sm_rd_miso_256:
+        PIN: A38
+        DIRECTION: IN
+    spi_rd_receive_status_256:
+        PIN: A39
+        DIRECTION: OUT        
+

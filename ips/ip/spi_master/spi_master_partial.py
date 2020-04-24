@@ -38,7 +38,8 @@ spi_ctrl      spi_ctrl_instance(
 							.cs_n(sm_cs_n),
 							.spi_tx_en(spi_tx_en),
 							.spi_rx_en(spi_rx_en),
-							.mode_select(mode_select),
+							.mode_select_CPHA(mode_select_CPHA),
+							.mode_select_CPOL(mode_select_CPOL),
 							.receive_status(spi_receive_status)
 							);
         """
@@ -58,14 +59,16 @@ wire spi_receive_status;
 reg spi_tx_en;
 reg spi_rx_en;
 reg spi_rst;
-reg mode_select;
+reg mode_select_CPHA;
+reg mode_select_CPOL;
     """
   def module_rest_codes():
     return """
      spi_rst <= 1'b0;
      spi_tx_en <= 1'b0;
      spi_rx_en <= 1'b0;
-     mode_select <= 1'b0;
+     mode_select_CPHA <= 1'b0;
+     mode_select_CPOL <= 1'b0;
      """
   def get_cmd_case_text(self):
     if self.alt == self.ALT[0]:
@@ -74,7 +77,8 @@ reg mode_select;
         spi_rst <= 1'b1;
         spi_tx_en <= 1'b1;
         spi_rx_en <= 1'b1;
-        mode_select <= 1'b0;
+        mode_select_CPOL <= 1'b0;
+        mode_select_CPHA <= 1'b0;	
         """
     else:
     #active low, raising edge, msb first
@@ -82,19 +86,22 @@ reg mode_select;
         spi_rst <= 1'b1;
         spi_tx_en <= 1'b1;
         spi_rx_en <= 1'b1;
-        mode_select <= 1'b1;
+        mode_select_CPOL <= 1'b0;
+        mode_select_CPHA <= 1'b1;		
         """
   def get_rst_case_text(self):
     return """
         spi_rst <= 1'b0;
         spi_tx_en <= 1'b0;
         spi_rx_en <= 1'b0;
-        mode_select <= 1'b0;
+        mode_select_CPOL <= 1'b0;
+        mode_select_CPHA <= 1'b0;
         """
   def get_dft_case_text(self):
     return """
         spi_rst <= 1'b0;
         spi_tx_en <= 1'b0;
         spi_rx_en <= 1'b0;
-        mode_select <= 1'b0;
+        mode_select_CPOL <= 1'b0;
+        mode_select_CPHA <= 1'b0;
         """

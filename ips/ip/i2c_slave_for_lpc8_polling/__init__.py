@@ -1,0 +1,2 @@
+from i2c_slave_for_lpc8_polling_partial import get_ip_name
+from i2c_slave_for_lpc8_polling_partial import I2C_SLAVE_FOR_LPC8_POLLING

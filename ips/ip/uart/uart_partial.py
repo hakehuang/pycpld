@@ -47,12 +47,11 @@ my_uart_rx      my_uart_rx(   .rst_n(rst_n),
                       
 my_uart_tx      my_uart_tx(   .rst_n(capture_rst), 
                       .baud_clk(clk_bps_t), 
-                      .tx_start(tx_start), 
+                      .tx_start(led_tx_start & button_tx_start), 
                       .tx_data(tx_data), 
                       .tx_enable(bps_start_t), 
                       .tx_complete(tx_complete), 
-                      .uart_tx(rs232_tx), 
-                      .error(tx_error)
+                      .uart_tx(rs232_tx)
                       );
     """
 

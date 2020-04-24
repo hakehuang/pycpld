@@ -3,7 +3,7 @@ I2C_SLAVE:
     CMD: ICS
     scl:
         PIN: A34
-        DIRECTION: IN
+        DIRECTION: out
     sda:
         PIN: A36
         DIRECTION: INOUT

@@ -1,0 +1,13 @@
+#this is a example of how ENC ip is used in our yaml
+IR_RECIEVE:
+    IP: __IR_RECIEVE
+    CMD: IRR
+    ir_sda:
+        PIN: A34
+        DIRECTION: in
+    ir_recieve_status:
+        PIN: A35
+        DIRECTION: out
+        
+
+

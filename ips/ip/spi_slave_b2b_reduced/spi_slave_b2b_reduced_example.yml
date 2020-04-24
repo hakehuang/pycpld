@@ -1,0 +1,19 @@
+SPI_SLAVE_B2B_reduced:
+    IP: __SPI_SLAVE_B2B_reduced
+    CMD: SPS
+    ALT: a 
+    ss_rd_sck_b2b:
+        PIN: A34
+        DIRECTION: IN
+    ss_rd_mosi_b2b:
+        PIN: A36
+        DIRECTION: IN
+    ss_rd_ssel_b2b:
+        PIN: A37
+        DIRECTION: IN   
+    ss_rd_miso_b2b:
+        PIN: A38
+        DIRECTION: OUT
+    spi_rd_slave_result_b2b:
+        PIN: A39
+        DIRECTION: OUT

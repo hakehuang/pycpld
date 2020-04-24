@@ -1,0 +1,19 @@
+SPI_SLAVE_FREERTOS:
+    IP: __SPI_SLAVE_FREERTOS
+    CMD: SPS
+    ALT: a 
+    ss_sck_freertos:
+        PIN: A34
+        DIRECTION: IN
+    ss_mosi_freertos:
+        PIN: A36
+        DIRECTION: IN
+    ss_ssel_freertos:
+        PIN: A37
+        DIRECTION: IN   
+    ss_miso_freertos:
+        PIN: A38
+        DIRECTION: OUT
+    spi_slave_result_freertos:
+        PIN: A39
+        DIRECTION: OUT

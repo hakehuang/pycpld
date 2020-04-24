@@ -29,17 +29,17 @@ class UART7BIT(base_ip.base_ip):
     return """ 
 uart_top7to7		uart_top7to7(
 						.clk(clk),
-						.rst_n(tx_start_f),
+						.rst_n(tx_start_f_7bit),
 						.rs232_rx(rs232_rx7to7),
 						.rs232_tx(rs232_tx7to7),
-						.data_ok(compara_error),
-						.uart_ctl(uart_speed_set)
+						.data_ok(compara_error_uart7bit),
+						.uart_ctl(uart_speed_set_7bit)
 						); 
     """
 
   def get_wire_defines(self):
     return """ 
-wire compara_error;
+wire compara_error_uart7bit;
 wire compare_ok;
 wire rs232_tx7to7;
 wire rs232_rx7to7; 
@@ -48,34 +48,34 @@ wire rs232_rx7to7;
     #additional reg definition
     return """
 reg enable_uart7bit;
-reg[2:0] uart_speed_set;
-reg tx_start_f;
+reg[2:0] uart_speed_set_7bit;
+reg tx_start_f_7bit;
     """
   def module_rest_codes(self):
     return """
-      uart_speed_set<=3'd4;
-      tx_start_f <= 1'b0;
+      uart_speed_set_7bit<=3'd4;
+      tx_sttx_start_f_7bitart_f <= 1'b0;
     """
   def get_cmd_case_text(self):
     if self.alt == self.ALT[0]:
       return """
-          uart_speed_set <= 3'd4;
-          tx_start_f <= 1'b1;
+          uart_speed_set_7bit <= 3'd4;
+          tx_start_f_7bit <= 1'b1;
       """
     else:
       return """
-          uart_speed_set <= 3'd0;
-          tx_start_f <= 1'b1;
+          uart_speed_set_7bit <= 3'd0;
+          tx_start_f_7bit <= 1'b1;
       """
   def get_rst_case_text(self):
     return """
     enable_uart7bit <= 1'b0;
-    uart_speed_set<=3'd4;
-    tx_start_f <= 1'b0;
+    uart_speed_set_7bit<=3'd4;
+    tx_start_f_7bit <= 1'b0;
     """
   def get_dft_case_text(self):
     return """
     enable_uart7bit <= 1'b0;
-    uart_speed_set<=3'd4;
+    uart_speed_set_7bit<=3'd4;
     enable_uart7bit <= 1'b0;
     """

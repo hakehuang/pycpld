@@ -1,0 +1,2 @@
+from i2c_master_with_log_partial import get_ip_name
+from i2c_master_with_log_partial import I2C_MASTER_WITH_LOG

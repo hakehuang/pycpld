@@ -6,7 +6,6 @@ Founction: I2C top module
 Note:
 ****************************************************************************/
 module I2C_MASTER(clk,rst_n,sda,scl,RD_EN,WR_EN,receive_status
-
 );
 
 input clk;
@@ -72,7 +71,7 @@ always @(posedge clk or negedge rst_n)begin
 		send_memory[31] <= 8'd31;
 		end
 	else begin 
-	   if(clk_div > 'd100)begin
+	   if(clk_div > 'd200)begin
 				scl_clk <= ~scl_clk;
 				clk_div <= 'h0;
 				end

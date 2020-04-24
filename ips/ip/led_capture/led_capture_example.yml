@@ -1,0 +1,53 @@
+#this is a example of how ENC ip is used in our yaml
+LED_CAPTURE:
+    IP: __LED_CAPTURE
+    CMD: CAA
+    led_input:
+        PIN: CPLD_IO2
+        DIRECTION: in
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+
+LED_CAPTURE1:
+    IP: __LED_CAPTURE
+    CMD: CAB
+    led_input:
+        PIN: CPLD_IO4
+        DIRECTION: in
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+LED_CAPTURE2:
+    IP: __LED_CAPTURE
+    CMD: CAC
+    led_input:
+        PIN: CPLD_IO5
+        DIRECTION: in
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+LED_CAPTURE3:
+    IP: __LED_CAPTURE
+    CMD: CAD
+    led_input:
+        PIN: CPLD_IO14
+        DIRECTION: in
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+LED_CAPTURE4:
+    IP: __LED_CAPTURE
+    CMD: CAE
+    led_input:
+        PIN: JJ4_1
+        DIRECTION: in
+    rs232_tx:
+        PIN: CPLD_IO3
+        DIRECTION: OUT
+        
+
+
